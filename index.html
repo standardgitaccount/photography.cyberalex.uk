@@ -378,18 +378,6 @@
       position: relative;
     }
 
-    .hero-frame-inner::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(to right, rgba(0, 0, 0, 0.3) 32.9%, rgba(255, 255, 255, 0.4) 33%, rgba(255, 255, 255, 0.4) 33.3%, rgba(0, 0, 0, 0.3) 33.4%, rgba(0, 0, 0, 0.3) 66.2%, rgba(255, 255, 255, 0.4) 66.3%, rgba(255, 255, 255, 0.4) 66.6%, rgba(0, 0, 0, 0.3) 66.7%),
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 32.9%, rgba(255, 255, 255, 0.4) 33%, rgba(255, 255, 255, 0.4) 33.3%, rgba(0, 0, 0, 0.3) 33.4%, rgba(0, 0, 0, 0.3) 66.2%, rgba(255, 255, 255, 0.4) 66.3%, rgba(255, 255, 255, 0.4) 66.6%, rgba(0, 0, 0, 0.3) 66.7%);
-      mix-blend-mode: soft-light;
-      opacity: 0.7;
-      pointer-events: none;
-    }
-
     .hero-frame-photo {
       width: 100%;
       height: 100%;
@@ -1019,6 +1007,27 @@
       transition: background 1s ease;
     }
 
+        /* Smooth background transition for hero */
+    .hero {
+      transition: background 0.6s ease;
+    }
+    
+    /* Hero slide animation */
+    @keyframes hero-swoosh {
+      from {
+        opacity: 0;
+        transform: translateX(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    .hero-frame.swoosh {
+      animation: hero-swoosh 0.45s ease-out;
+    }
+
     
   </style>
 </head>
@@ -1070,11 +1079,11 @@
         <div class="hero-portrait-wrap">
           <button class="hero-frame" type="button" aria-label="Open featured photograph">
             <div class="hero-frame-inner">
-              <img src="images/hero-placeholder.jpg" alt="" class="hero-frame-photo" />
+              <img src="images/rose-memory-still-life.jpg" alt="Featured photograph" class="hero-frame-photo" />
             </div>
             <div class="hero-note">
               <span class="hero-note-dot"></span>
-              <span>Expertly Composed</span>
+              <span>Expertly composed</span>
             </div>
           </button>
         </div>
@@ -1293,15 +1302,27 @@
     const thumbButtons = Array.from(document.querySelectorAll('.photo-thumb-btn'));
     const prevBtn = document.querySelector('.lightbox-prev');
     const nextBtn = document.querySelector('.lightbox-next');
-    const heroImg = document.querySelector('.hero-frame-photo');
+
+    const heroSection = document.querySelector('.hero');
     const heroFrame = document.querySelector('.hero-frame');
+    const heroImg = document.querySelector('.hero-frame-photo');
 
     let lastFocusedElement = null;
     let currentIndex = 0;
-    let heroTimer = null;
+
+    function getDataFromButton(btn) {
+      const full = btn.getAttribute('data-full') || '';
+      const title = btn.getAttribute('data-title') || '';
+      const meta = btn.getAttribute('data-meta') || '';
+      const shortText = btn.getAttribute('data-short') || '';
+      const longText = btn.getAttribute('data-long') || '';
+      const img = btn.querySelector('img');
+      const alt = img ? img.alt : '';
+      return { full, title, meta, shortText, longText, alt };
+    }
 
     function openLightbox(data) {
-      if (!lightbox || !lightboxImg || !lightboxTitle || !lightboxMeta || !lightboxShort || !lightboxLong) return;
+      if (!lightbox || !lightboxImg) return;
       lastFocusedElement = document.activeElement;
 
       lightboxImg.src = data.full;
@@ -1322,20 +1343,7 @@
       lightbox.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
 
-      if (closeBtn) {
-        closeBtn.focus();
-      }
-    }
-
-    function getDataFromButton(btn) {
-      const full = btn.getAttribute('data-full') || '';
-      const title = btn.getAttribute('data-title') || '';
-      const meta = btn.getAttribute('data-meta') || '';
-      const shortText = btn.getAttribute('data-short') || '';
-      const longText = btn.getAttribute('data-long') || '';
-      const img = btn.querySelector('img');
-      const alt = img ? img.alt : '';
-      return { full, title, meta, shortText, longText, alt };
+      if (closeBtn) closeBtn.focus();
     }
 
     function openLightboxByIndex(index) {
@@ -1358,18 +1366,12 @@
 
     // Thumbnail click -> open correct image
     thumbButtons.forEach((btn, index) => {
-      btn.addEventListener('click', () => {
-        openLightboxByIndex(index);
-      });
+      btn.addEventListener('click', () => openLightboxByIndex(index));
     });
 
-    // Next / prev buttons in lightbox
-    if (prevBtn) {
-      prevBtn.addEventListener('click', () => openLightboxByIndex(currentIndex - 1));
-    }
-    if (nextBtn) {
-      nextBtn.addEventListener('click', () => openLightboxByIndex(currentIndex + 1));
-    }
+    // Next / prev buttons in lightbox (if you added them)
+    if (prevBtn) prevBtn.addEventListener('click', () => openLightboxByIndex(currentIndex - 1));
+    if (nextBtn) nextBtn.addEventListener('click', () => openLightboxByIndex(currentIndex + 1));
 
     // Toggle long write-up
     if (lightboxToggle && lightboxLong) {
@@ -1378,22 +1380,16 @@
         lightboxLong.hidden = !isHidden;
         lightboxToggle.setAttribute('aria-expanded', String(isHidden));
         const span = lightboxToggle.querySelector('span');
-        if (span) {
-          span.textContent = isHidden ? 'Show less' : 'Read full write-up';
-        }
+        if (span) span.textContent = isHidden ? 'Show less' : 'Read full write-up';
       });
     }
 
     // Close behaviour
-    if (closeBtn) {
-      closeBtn.addEventListener('click', closeLightbox);
-    }
+    if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
 
     if (lightbox) {
       lightbox.addEventListener('click', (event) => {
-        if (event.target === lightbox) {
-          closeLightbox();
-        }
+        if (event.target === lightbox) closeLightbox();
       });
     }
 
@@ -1412,30 +1408,60 @@
       }
     });
 
-    // HERO SLIDESHOW — cycle through selected work
-    function updateHeroFromIndex(index) {
-      if (!heroImg || !thumbButtons.length) return;
-      currentIndex = (index + thumbButtons.length) % thumbButtons.length;
-      const btn = thumbButtons[currentIndex];
-      const data = getDataFromButton(btn);
+    // -------- HERO SLIDESHOW + MATCHING GRADIENT --------
 
-      heroImg.src = data.full || heroImg.src;
-      heroImg.alt = data.alt || 'Featured photograph';
+    const heroSlides = [
+      {
+        index: 0,
+        src: 'images/rose-memory-still-life.jpg',
+        alt: 'Close-up of a deep purple rose against a black background.',
+        bg1: 'rgba(160, 60, 200, 0.45)',
+        bg2: 'rgba(10, 5, 40, 0.8)'
+      },
+      {
+        index: 1,
+        src: 'images/broken-phone-screen-experiment.jpg',
+        alt: 'Abstract cracked phone screen with soft light.',
+        bg1: 'rgba(80, 140, 170, 0.45)',
+        bg2: 'rgba(20, 20, 40, 0.85)'
+      },
+      {
+        index: 2,
+        src: 'images/welsh-valley-sunrise-landscape.jpg',
+        alt: 'Welsh hillside silhouette with blue and orange sunrise.',
+        bg1: 'rgba(255, 140, 80, 0.45)',
+        bg2: 'rgba(20, 40, 80, 0.85)'
+      }
+    ];
 
-      // Optional: colour the hero background from data attributes if you add them later:
-      // data-hero-accent1 / data-hero-accent2 on each .photo-thumb-btn
-      const accent1 = btn.getAttribute('data-hero-accent1');
-      const accent2 = btn.getAttribute('data-hero-accent2');
-      if (accent1) document.documentElement.style.setProperty('--hero-accent-1', accent1);
-      if (accent2) document.documentElement.style.setProperty('--hero-accent-2', accent2);
+    let heroIndex = 0;
+
+    function applyHeroSlide(slide) {
+      if (!heroImg || !heroSection || !heroFrame) return;
+
+      heroImg.src = slide.src;
+      heroImg.alt = slide.alt;
+
+      heroSection.style.background =
+        `radial-gradient(circle at 0 0, ${slide.bg1} 0, transparent 60%),
+         radial-gradient(circle at 100% 100%, ${slide.bg2} 0, transparent 60%),
+         linear-gradient(135deg, rgba(13, 18, 30, 0.96), rgba(7, 9, 16, 0.98))`;
+
+      heroFrame.classList.remove('swoosh');
+      void heroFrame.offsetWidth; // restart animation
+      heroFrame.classList.add('swoosh');
+
+      currentIndex = slide.index;
     }
 
-    if (thumbButtons.length) {
-      updateHeroFromIndex(0);
+    function nextHeroSlide() {
+      heroIndex = (heroIndex + 1) % heroSlides.length;
+      applyHeroSlide(heroSlides[heroIndex]);
+    }
 
-      heroTimer = setInterval(() => {
-        updateHeroFromIndex(currentIndex + 1);
-      }, 8000);
+    if (heroSlides.length && heroImg && heroSection) {
+      applyHeroSlide(heroSlides[0]);       // initial
+      setInterval(nextHeroSlide, 8000);    // change every 8s
     }
 
     if (heroFrame) {
@@ -1444,100 +1470,8 @@
       });
     }
   })();
-
-  // --- HERO CAROUSEL WITH SWOOSH ANIMATION ---
-  const heroImages = [
-    "images/rose-memory-still-life.jpg",
-    "images/broken-phone-screen-experiment.jpg",
-    "images/welsh-valley-sunrise-landscape.jpg"
-  ];
-
-  const heroImg = document.querySelector(".hero-frame-photo");
-  const heroInner = document.querySelector(".hero-frame-inner");
-  let heroIndex = 0;
-
-  function updateHero() {
-    heroIndex = (heroIndex + 1) % heroImages.length;
-    heroImg.src = heroImages[heroIndex];
-
-    // trigger swoosh animation
-    heroInner.classList.remove("swoosh");
-    void heroInner.offsetWidth; // forces reflow to restart animation
-    heroInner.classList.add("swoosh");
-  }
-
-  // Rotate every 5 seconds
-  setInterval(updateHero, 5000);
-
-  // Clicking hero image should open correct lightbox
-  heroInner.addEventListener("click", () => {
-    const targetCard = document.querySelectorAll(".photo-thumb-btn")[heroIndex];
-    if (targetCard) targetCard.click();
-  });
-
-   // ---- GRADIENT FROM IMAGE ----
-  function getAverageColor(img, callback) {
-    const canvas = document.createElement("canvas");
-    const ctx = canvas.getContext("2d");
-
-    img.crossOrigin = "anonymous"; // Helps with same-origin images
-
-    img.onload = function() {
-      canvas.width = img.naturalWidth;
-      canvas.height = img.naturalHeight;
-      ctx.drawImage(img, 0, 0);
-
-      const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
-      let r = 0, g = 0, b = 0, count = 0;
-
-      for (let i = 0; i < data.length; i += 40) { 
-        r += data[i];
-        g += data[i + 1];
-        b += data[i + 2];
-        count++;
-      }
-
-      r = Math.round(r / count);
-      g = Math.round(g / count);
-      b = Math.round(b / count);
-
-      callback(`rgb(${r}, ${g}, ${b})`);
-    };
-  }
-
-  function applyGradient(color) {
-    const hero = document.querySelector(".hero");
-
-    hero.style.background = `
-      radial-gradient(circle at top left, ${color}20 0%, transparent 60%),
-      radial-gradient(circle at bottom right, ${color}25 0%, transparent 60%),
-      linear-gradient(135deg, rgba(10,12,18,0.95), rgba(4,6,9,0.98))
-    `;
-  }
-
-  // ---- HOOK INTO YOUR EXISTING HERO CYCLER ----
-  const heroImgEl = document.querySelector(".hero-frame-photo");
-
-  function updateHeroGradient() {
-    const clone = new Image();
-    clone.src = heroImgEl.src;
-
-    getAverageColor(clone, (color) => {
-      applyGradient(color);
-    });
-  }
-
-  // Run on initial load
-  updateHeroGradient();
-
-  // Patch into your existing 5-second carousel:
-  const prevUpdateHero = updateHero; // backup original
-  updateHero = function() {
-    prevUpdateHero();       // run original function (changes image + swoosh)
-    setTimeout(updateHeroGradient, 150); // allow image swap to finish
-  }
-
 </script>
+
 
 </body>
 </html>

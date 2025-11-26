@@ -919,12 +919,23 @@
   }
 
     
-        /* Hero frame is now a button */
     .hero-frame {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: #05070d; /* neutral fallback, JS will override */
+      aspect-ratio: 4 / 5;
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       cursor: pointer;
       border: none;
       padding: 0;
+      transition: background 1.4s ease; /* <-- slow fade here */
     }
+
     
     /* Make the lightbox use more of the screen */
     .lightbox-inner {
@@ -1446,21 +1457,29 @@
     function applyHeroSlide(slide) {
       if (!heroImg || !heroSection || !heroFrame || !heroFrameInner) return;
     
+      // Update the hero image
       heroImg.src = slide.src;
       heroImg.alt = slide.alt;
     
-      // Outer hero background
+      // Big hero card background
       heroSection.style.background =
         `radial-gradient(circle at 0 0, ${slide.bg1} 0, transparent 60%),
          radial-gradient(circle at 100% 100%, ${slide.bg2} 0, transparent 60%),
          linear-gradient(135deg, rgba(13, 18, 30, 0.96), rgba(7, 9, 16, 0.98))`;
     
-      // Inner frame background (use swapped colours for contrast)
-      heroFrameInner.style.background =
-        `radial-gradient(circle at 20% 0%, ${slide.bg2} 0, transparent 55%),
+      // Smaller box the image sits in (this is the one you're looking at)
+      heroFrame.style.background =
+        `radial-gradient(circle at 0 0, ${slide.bg2} 0, transparent 55%),
          radial-gradient(circle at 100% 100%, ${slide.bg1} 0, transparent 60%),
          #05070d`;
     
+      // Optional: tweak the inner frame for a bit of subtle contrast
+      heroFrameInner.style.background =
+        `radial-gradient(circle at 30% 0, rgba(255,255,255,0.04) 0, transparent 55%),
+         radial-gradient(circle at 100% 100%, rgba(0,0,0,0.8) 0, transparent 65%),
+         #05070d`;
+    
+      // Trigger swoosh animation on the entire frame
       heroFrame.classList.remove('swoosh');
       void heroFrame.offsetWidth; // restart animation
       heroFrame.classList.add('swoosh');

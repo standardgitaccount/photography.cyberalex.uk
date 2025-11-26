@@ -1,1 +1,1279 @@
-<html><body>Test</body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alex — Photography Portfolio</title>
+  <meta name="description" content="One-page accessible photography portfolio showcasing selected work with fullscreen viewing and reflective write-ups." />
+
+  <style>
+    :root {
+      --bg: #040609;
+      --bg-soft: #0b1119;
+      --bg-softer: #121823;
+      --text: #f7f7f7;
+      --muted: #a9b3c5;
+      --accent: #f5c451;
+      --accent-soft: rgba(245, 196, 81, 0.18);
+      --border-subtle: #252b3a;
+      --error: #ff6b6b;
+      --radius-lg: 1.5rem;
+      --radius-xl: 2rem;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.55);
+      --max-width: 1100px;
+      --phi: 1.618;
+      --space: 1.2rem;
+      --transition-fast: 160ms ease-out;
+      --transition-med: 220ms ease;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: radial-gradient(circle at top left, #161c27 0, #040609 52%, #020308 100%);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 0.75rem;
+      top: -3rem;
+      padding: 0.5rem 1rem;
+      background: #000;
+      color: #fff;
+      border-radius: 999px;
+      z-index: 999;
+      transform: translateY(0);
+      transition: top var(--transition-med);
+    }
+
+    .skip-link:focus {
+      top: 0.75rem;
+    }
+
+    .page-shell {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.4rem 1.4rem 2.8rem;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom, rgba(4, 6, 9, 0.92), rgba(4, 6, 9, 0.65), transparent);
+    }
+
+    .top-bar {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.9rem 1.4rem 0.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      background:
+        radial-gradient(circle at 25% 0%, rgba(245, 196, 81, 0.65), transparent 55%),
+        radial-gradient(circle at 75% 120%, #4e8cff, transparent 55%),
+        radial-gradient(circle at 50% 50%, #05060a, #05060a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.02);
+    }
+
+    .brand-mark span {
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+    }
+
+    .brand-text-primary {
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.76rem;
+    }
+
+    .brand-text-secondary {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .pill-link {
+      border-radius: 999px;
+      padding: 0.35rem 0.9rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid transparent;
+      background: transparent;
+      transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .pill-link:hover,
+    .pill-link:focus-visible {
+      color: var(--text);
+      border-color: var(--border-subtle);
+      background: rgba(10, 15, 22, 0.9);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .pill-link.primary {
+      border-color: rgba(245, 196, 81, 0.45);
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .pill-link.primary:hover,
+    .pill-link.primary:focus-visible {
+      background: rgba(245, 196, 81, 0.25);
+      box-shadow: 0 0 0 1px rgba(245, 196, 81, 0.4);
+    }
+
+    main {
+      padding-top: 1.2rem;
+    }
+
+    .hero {
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at 0 0, rgba(245, 196, 81, 0.16), transparent 60%),
+                  radial-gradient(circle at 100% 100%, rgba(78, 140, 255, 0.16), transparent 60%),
+                  linear-gradient(135deg, rgba(13, 18, 30, 0.96), rgba(7, 9, 16, 0.98));
+      box-shadow: var(--shadow-soft);
+      padding: calc(var(--space) * var(--phi) * 1.1);
+      margin-bottom: calc(var(--space) * var(--phi) * 1.4);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.618fr) minmax(0, 1fr);
+      gap: calc(var(--space) * var(--phi));
+      align-items: center;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.2rem 0.75rem 0.25rem;
+      border-radius: 999px;
+      border: 1px solid rgba(245, 196, 81, 0.4);
+      background: rgba(5, 6, 10, 0.82);
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-kicker span {
+      color: var(--accent);
+    }
+
+    .hero-title {
+      font-size: clamp(2.1rem, 3vw + 1rem, 2.8rem);
+      line-height: 1.06;
+      letter-spacing: 0.01em;
+      margin: 0 0 0.7rem;
+    }
+
+    .hero-title span {
+      color: var(--accent);
+    }
+
+    .hero-text {
+      max-width: 34rem;
+      font-size: 0.98rem;
+      line-height: 1.6;
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.3rem;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-bottom: 1.3rem;
+    }
+
+    .hero-meta span {
+      padding-left: 0.8rem;
+      position: relative;
+    }
+
+    .hero-meta span::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      width: 0.5rem;
+      border-bottom: 1px solid rgba(169, 179, 197, 0.55);
+      margin-right: 0.2rem;
+      transform: translateY(-0.15rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .hero-actions .pill-link {
+      padding-inline: 1.1rem;
+    }
+
+    .hero-portrait-wrap {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .hero-frame {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: radial-gradient(circle at 50% 0, rgba(245, 196, 81, 0.26), transparent 65%),
+                  radial-gradient(circle at 0 100%, rgba(78, 140, 255, 0.35), transparent 60%),
+                  #05060a;
+      aspect-ratio: 4 / 5;
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-frame-inner {
+      width: 86%;
+      height: 86%;
+      border-radius: calc(var(--radius-lg) * 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-frame-inner::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(to right, rgba(0, 0, 0, 0.3) 32.9%, rgba(255, 255, 255, 0.4) 33%, rgba(255, 255, 255, 0.4) 33.3%, rgba(0, 0, 0, 0.3) 33.4%, rgba(0, 0, 0, 0.3) 66.2%, rgba(255, 255, 255, 0.4) 66.3%, rgba(255, 255, 255, 0.4) 66.6%, rgba(0, 0, 0, 0.3) 66.7%),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 32.9%, rgba(255, 255, 255, 0.4) 33%, rgba(255, 255, 255, 0.4) 33.3%, rgba(0, 0, 0, 0.3) 33.4%, rgba(0, 0, 0, 0.3) 66.2%, rgba(255, 255, 255, 0.4) 66.3%, rgba(255, 255, 255, 0.4) 66.6%, rgba(0, 0, 0, 0.3) 66.7%);
+      mix-blend-mode: soft-light;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .hero-frame-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: contrast(1.1) saturate(1.02);
+    }
+
+    .hero-note {
+      position: absolute;
+      right: 0.5rem;
+      bottom: 0.4rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      background: rgba(3, 5, 10, 0.9);
+      border-radius: 999px;
+      padding: 0.35rem 0.75rem;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-note-dot {
+      width: 0.35rem;
+      height: 0.35rem;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(245, 196, 81, 0.25);
+    }
+
+    .section {
+      margin-bottom: calc(var(--space) * var(--phi) * 1.7);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .section-subtitle {
+      font-size: 0.82rem;
+      color: var(--muted);
+      max-width: 26rem;
+    }
+
+    .section-subtitle span {
+      color: var(--accent);
+    }
+
+    .grid-thirds {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: calc(var(--space) * 0.9);
+    }
+
+    .photo-card {
+      position: relative;
+      border-radius: calc(var(--radius-lg) * 0.85);
+      overflow: hidden;
+      background: linear-gradient(145deg, rgba(12, 17, 26, 0.96), rgba(6, 8, 14, 0.98));
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.65);
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+
+    .photo-thumb-btn {
+      border: none;
+      padding: 0;
+      background: transparent;
+      cursor: pointer;
+      text-align: left;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .photo-thumb-btn:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .photo-thumb-btn img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      transition: transform var(--transition-med), filter var(--transition-med);
+    }
+
+    .photo-card:hover img {
+      transform: scale(1.03);
+      filter: brightness(1.05);
+    }
+
+    .photo-overlay-tag {
+      position: absolute;
+      left: 0.7rem;
+      top: 0.7rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      background: rgba(4, 6, 9, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: var(--muted);
+    }
+
+    .photo-body {
+      padding: 0.85rem 0.85rem 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .photo-title {
+      font-size: 0.92rem;
+      font-weight: 500;
+    }
+
+    .photo-meta {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    .photo-short {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .photo-open-hint {
+      font-size: 0.72rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-top: 0.1rem;
+      color: rgba(169, 179, 197, 0.78);
+    }
+
+    .photo-open-dot {
+      width: 0.32rem;
+      height: 0.32rem;
+      border-radius: 999px;
+      border: 1px solid rgba(245, 196, 81, 0.6);
+    }
+
+    .about-panel {
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, rgba(10, 14, 23, 0.96), rgba(6, 9, 16, 0.98));
+      border: 1px solid var(--border-subtle);
+      padding: 1.1rem 1.1rem 1.2rem;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 1.1rem;
+      align-items: flex-start;
+    }
+
+    .about-body {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .about-body p {
+      margin: 0 0 0.5rem;
+    }
+
+    .about-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.5rem 0 0;
+      display: grid;
+      gap: 0.25rem;
+      font-size: 0.8rem;
+    }
+
+    .about-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 0.3rem;
+    }
+
+    .about-list span {
+      font-size: 0.8rem;
+      color: var(--accent);
+    }
+
+    .about-stat {
+      border-radius: calc(var(--radius-lg) * 0.9);
+      background: radial-gradient(circle at 0 0, rgba(245, 196, 81, 0.18), transparent 60%), #070a12;
+      border: 1px solid rgba(245, 196, 81, 0.4);
+      padding: 0.85rem 0.95rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .about-stat-main {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .about-stat-foot {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .contact-panel {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      background: linear-gradient(135deg, rgba(8, 11, 19, 0.96), rgba(5, 7, 13, 0.96));
+      padding: 1rem 1.1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.2rem;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.84rem;
+      color: var(--muted);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6);
+    }
+
+    .contact-label {
+      max-width: 26rem;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+    }
+
+    .contact-chip {
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      border: 1px dashed var(--border-subtle);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+    }
+
+    footer {
+      margin-top: 1.6rem;
+      padding-top: 0.8rem;
+      border-top: 1px solid #181d26;
+      font-size: 0.72rem;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1.4rem;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .footer-links a {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at top, rgba(245, 196, 81, 0.16), transparent 55%),
+                  rgba(3, 5, 10, 0.96);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.2rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-med);
+      z-index: 40;
+    }
+
+    .lightbox.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox-inner {
+      width: min(960px, 100%);
+      max-height: 100%;
+      background: linear-gradient(145deg, #05070c, #070b13);
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(245, 196, 81, 0.38);
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.9);
+      display: grid;
+      grid-template-columns: minmax(0, 1.618fr) minmax(0, 1fr);
+      gap: 1rem;
+      padding: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .lightbox-media {
+      border-radius: calc(var(--radius-lg) * 0.9);
+      overflow: hidden;
+      background: #020308;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-img {
+      width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+    }
+
+    .lightbox-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      font-size: 0.86rem;
+      color: var(--muted);
+      max-height: 80vh;
+      overflow: auto;
+      padding-right: 0.3rem;
+    }
+
+    .lightbox-kicker {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+    }
+
+    .lightbox-title {
+      font-size: 1.15rem;
+      margin: 0.1rem 0;
+    }
+
+    .lightbox-meta {
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(169, 179, 197, 0.88);
+      margin-bottom: 0.4rem;
+    }
+
+    .lightbox-short {
+      margin: 0 0 0.35rem;
+    }
+
+    .lightbox-long {
+      margin: 0.1rem 0 0.3rem;
+      font-size: 0.84rem;
+      line-height: 1.6;
+    }
+
+    .lightbox-toggle {
+      align-self: flex-start;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      padding: 0.35rem 0.9rem;
+      background: transparent;
+      color: var(--muted);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .lightbox-toggle:hover,
+    .lightbox-toggle:focus-visible {
+      background: rgba(10, 15, 25, 0.95);
+      border-color: rgba(245, 196, 81, 0.5);
+      color: var(--accent);
+      outline: none;
+      transform: translateY(-1px);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 0.65rem;
+      right: 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(3, 5, 10, 0.92);
+      color: var(--muted);
+      padding: 0.15rem 0.6rem;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), border-color var(--transition-fast);
+      z-index: 1;
+    }
+
+    .lightbox-close:hover,
+    .lightbox-close:focus-visible {
+      background: rgba(245, 196, 81, 0.16);
+      color: var(--accent);
+      border-color: rgba(245, 196, 81, 0.6);
+      outline: none;
+      transform: translateY(-1px);
+    }
+
+    .lightbox-keyhint {
+      font-size: 0.7rem;
+      color: rgba(169, 179, 197, 0.8);
+      margin-top: 0.35rem;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-portrait-wrap {
+        order: -1;
+      }
+
+      .hero {
+        padding: 1.2rem;
+      }
+
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .about-panel {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .lightbox-inner {
+        grid-template-columns: minmax(0, 1fr);
+        max-height: calc(100vh - 2.2rem);
+      }
+
+      .lightbox-media {
+        max-height: 55vh;
+      }
+
+      .lightbox-content {
+        max-height: 40vh;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .page-shell {
+        padding-inline: 1rem;
+      }
+
+      .top-bar {
+        padding-inline: 1rem;
+      }
+
+      .grid-thirds {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .contact-panel {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .grid-thirds {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-meta {
+        flex-direction: column;
+      }
+
+      .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header>
+    <div class="top-bar" aria-label="Primary navigation">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <span>A</span>
+        </div>
+        <div>
+          <div class="brand-text-primary">Alex</div>
+          <div class="brand-text-secondary">Photography &amp; Light</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#portfolio" class="pill-link">Portfolio</a>
+        <a href="#about" class="pill-link">Approach</a>
+        <a href="#contact" class="pill-link">Contact</a>
+        <a href="#portfolio" class="pill-link primary">View the work</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="page-shell">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-kicker">Distinction-led portfolio <span>built for screens</span></div>
+          <h1 id="hero-title" class="hero-title">Photography that balances <span>precision</span> with instinct.</h1>
+          <p class="hero-text">
+            A one-page, distraction-free portfolio that leans into the rule of thirds and golden ratio. Every image opens
+            full screen with a concise note that can be expanded into deeper reflection when needed — ideal for assessors,
+            clients, and curious humans.
+          </p>
+          <div class="hero-meta" aria-label="Portfolio highlights">
+            <span>Curated series: 3</span>
+            <span>Images on this page: 9</span>
+            <span>Designed for: Desktop &amp; mobile</span>
+          </div>
+          <div class="hero-actions">
+            <a href="#portfolio" class="pill-link primary">Start with the work</a>
+            <a href="#about" class="pill-link">Read the approach</a>
+          </div>
+        </div>
+
+        <div class="hero-portrait-wrap" aria-hidden="true">
+          <div class="hero-frame">
+            <div class="hero-frame-inner">
+              <!-- Replace this with a self-portrait or key image -->
+              <img src="images/hero-placeholder.jpg" alt="" class="hero-frame-photo" />
+            </div>
+            <div class="hero-note">
+              <span class="hero-note-dot"></span>
+              <span>Composed on the thirds</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio" class="section" aria-labelledby="portfolio-title">
+      <div class="section-header">
+        <h2 id="portfolio-title" class="section-title">Selected work</h2>
+        <p class="section-subtitle">
+          Three small series, each framed with the <span>rule of thirds</span> in mind.
+          Click any image to view it full screen and access a longer write-up.
+        </p>
+      </div>
+
+      <div class="grid-thirds" aria-label="Portfolio grid">
+        <!-- Card 1 -->
+        <article class="photo-card">
+          <button class="photo-thumb-btn" type="button"
+                  data-full="images/series-1-landscape-1.jpg"
+                  data-title="Reservoir Edge"
+                  data-meta="Landscape · 2023"
+                  data-short="Soft evening light falling across the dam wall, anchored to the lower third of the frame."
+                  data-long="Shot on a late autumn evening as the light dropped behind the valley. The decision to hold the dam wall to the lower third gives the water and sky room to breathe, while still grounding the image with a clear line. I waited for the lone figure to step into the right third, adding a sense of scale and quiet narrative without overwhelming the geometry of the scene.">
+            <img src="images/thumb-series-1-landscape-1.jpg" alt="Dam wall cutting horizontally across a still reservoir at dusk." loading="lazy" />
+            <span class="photo-overlay-tag">Series I</span>
+          </button>
+          <div class="photo-body">
+            <h3 class="photo-title">Reservoir Edge</h3>
+            <p class="photo-meta">Landscape · 2023</p>
+            <p class="photo-short">Soft evening light falling across the dam wall, anchored to the lower third of the frame.</p>
+            <p class="photo-open-hint"><span class="photo-open-dot"></span>Click to view full screen &amp; read more</p>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="photo-card">
+          <button class="photo-thumb-btn" type="button"
+                  data-full="images/series-1-landscape-2.jpg"
+                  data-title="Fog Line"
+                  data-meta="Landscape · 2023"
+                  data-short="A tree line dissolving into fog, arranged as a gentle diagonal through the frame."
+                  data-long="This image explores how atmosphere can become a compositional tool. The tree line traces a loose diagonal from the lower left third to the upper right, with the densest contrast held away from the centre. By exposing for the highlights and letting mid-tones fall away, the fog does most of the work, simplifying the scene into shape and rhythm.">
+            <img src="images/thumb-series-1-landscape-2.jpg" alt="Foggy tree line receding into soft white mist." loading="lazy" />
+            <span class="photo-overlay-tag">Series I</span>
+          </button>
+          <div class="photo-body">
+            <h3 class="photo-title">Fog Line</h3>
+            <p class="photo-meta">Landscape · 2023</p>
+            <p class="photo-short">A tree line dissolving into fog, arranged as a gentle diagonal through the frame.</p>
+            <p class="photo-open-hint"><span class="photo-open-dot"></span>Click to view full screen &amp; read more</p>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="photo-card">
+          <button class="photo-thumb-btn" type="button"
+                  data-full="images/series-1-landscape-3.jpg"
+                  data-title="Overpass"
+                  data-meta="Urban landscape · 2023"
+                  data-short="Late light catching the underside of an overpass, held deliberately on the upper third."
+                  data-long="The overpass splits the frame on the upper third, leaving negative space beneath for traffic and shadow. I was interested in how the structure divides the sky into unequal bands, echoing the golden ratio rather than a perfect half. The single car in the lower right third is almost an afterthought, giving just enough life to a heavy concrete scene.">
+            <img src="images/thumb-series-1-landscape-3.jpg" alt="Concrete overpass with warm sunlight cutting across the underside." loading="lazy" />
+            <span class="photo-overlay-tag">Series I</span>
+          </button>
+          <div class="photo-body">
+            <h3 class="photo-title">Overpass</h3>
+            <p class="photo-meta">Urban landscape · 2023</p>
+            <p class="photo-short">Late light catching the underside of an overpass, held deliberately on the upper third.</p>
+            <p class="photo-open-hint"><span class="photo-open-dot"></span>Click to view full screen &amp; read more</p>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="photo-card">
+          <button class="photo-thumb-btn" type="button"
+                  data-full="images/series-2-privacy-1.jpg"
+                  data-title="Observed"
+                  data-meta="Conceptual · Privacy · 2022"
+                  data-short="A CCTV dome isolated on the right third, framed by blank concrete and sky."
+                  data-long="Part of a larger body of work on surveillance and everyday spaces. Positioning the CCTV dome on the upper right third leaves a large negative field of concrete, emphasising how small the physical device is compared to the psychological weight it carries. The golden-spiral crop leads the eye from the lower left shadows up to that single point of observation.">
+            <img src="images/thumb-series-2-privacy-1.jpg" alt="CCTV dome on a concrete building against pale sky." loading="lazy" />
+            <span class="photo-overlay-tag">Series II</span>
+          </button>
+          <div class="photo-body">
+            <h3 class="photo-title">Observed</h3>
+            <p class="photo-meta">Conceptual · Privacy · 2022</p>
+            <p class="photo-short">A CCTV dome isolated on the right third, framed by blank concrete and sky.</p>
+            <p class="photo-open-hint"><span class="photo-open-dot"></span>Click to view full screen &amp; read more</p>
+          </div>
+        </article>
+
+        <!-- Card 5 -->
+        <article class="photo-card">
+          <button class="photo-thumb-btn" type="button"
+                  data-full="images/series-2-privacy-2.jpg"
+                  data-title="Redacted Window"
+                  data-meta="Conceptual · Privacy · 2022"
+                  data-short="A lit window obscured by blinds, held to the left third against deep shadow."
+                  data-long="Here the window is both subject and censor. By placing it on the left third and letting the rest of the frame fall into darkness, the image suggests information that is present but withheld. The glow from the blinds is the brightest tone in the frame, pulling the eye repeatedly back to the idea of partial access rather than total visibility.">
+            <img src="images/thumb-series-2-privacy-2.jpg" alt="Bright window blinds glowing in a dark residential street." loading="lazy" />
+            <span class="photo-overlay-tag">Series II</span>
+          </button>
+          <div class="photo-body">
+            <h3 class="photo-title">Redacted Window</h3>
+            <p class="photo-meta">Conceptual · Privacy · 2022</p>
+            <p class="photo-short">A lit window obscured by blinds, held to the left third against deep shadow.</p>
+            <p class="photo-open-hint"><span class="photo-open-dot"></span>Click to view full screen &amp; read more</p>
+          </div>
+        </article>
+
+        <!-- Card 6 -->
+        <article class="photo-card">
+          <button class="photo-thumb-btn" type="button"
+                  data-full="images/series-2-privacy-3.jpg"
+                  data-title="Signal"
+                  data-meta="Conceptual · Privacy · 2022"
+                  data-short="A lone phone screen lighting a face, cropped into the lower golden rectangle."
+                  data-long="The composition follows a loose golden rectangle, with the face and phone occupying the inner spiral. Keeping the rest of the frame nearly black emphasises how much of the subject's world is being mediated through that single glowing rectangle. The longer write-up connects this piece to ideas of consent, data trails, and the comfort we take from small personal screens.">
+            <img src="images/thumb-series-2-privacy-3.jpg" alt="Face lit only by a phone screen in a dark environment." loading="lazy" />
+            <span class="photo-overlay-tag">Series II</span>
+          </button>
+          <div class="photo-body">
+            <h3 class="photo-title">Signal</h3>
+            <p class="photo-meta">Conceptual · Privacy · 2022</p>
+            <p class="photo-short">A lone phone screen lighting a face, cropped into the lower golden rectangle.</p>
+            <p class="photo-open-hint"><span class="photo-open-dot"></span>Click to view full screen &amp; read more</p>
+          </div>
+        </article>
+
+        <!-- Card 7 -->
+        <article class="photo-card">
+          <button class="photo-thumb-btn" type="button"
+                  data-full="images/series-3-detail-1.jpg"
+                  data-title="Brake Line"
+                  data-meta="Detail · Automotive · 2024"
+                  data-short="A close crop of a brake disc and caliper, held exactly on a vertical third."
+                  data-long="Part of a series exploring engineering details. The brake disc sits on a perfect vertical third, with the calliper intersecting a horizontal third. The texture of the metal and dust becomes almost topographical when lit from a shallow angle. This image links back to my broader interest in cars and control, using familiar components as sculptural forms.">
+            <img src="images/thumb-series-3-detail-1.jpg" alt="Close-up of a brake disc and caliper with directional light." loading="lazy" />
+            <span class="photo-overlay-tag">Series III</span>
+          </button>
+          <div class="photo-body">
+            <h3 class="photo-title">Brake Line</h3>
+            <p class="photo-meta">Detail · Automotive · 2024</p>
+            <p class="photo-short">A close crop of a brake disc and caliper, held exactly on a vertical third.</p>
+            <p class="photo-open-hint"><span class="photo-open-dot"></span>Click to view full screen &amp; read more</p>
+          </div>
+        </article>
+
+        <!-- Card 8 -->
+        <article class="photo-card">
+          <button class="photo-thumb-btn" type="button"
+                  data-full="images/series-3-detail-2.jpg"
+                  data-title="Tyre Mark"
+                  data-meta="Detail · Automotive · 2024"
+                  data-short="Subtle tyre marks sweeping through the lower third of a wet road."
+                  data-long="Shot just after rain, before the surface fully dried. The tyre marks arc across the lower third while street lights reflect in the upper sections. It reads almost as a graph of movement. The long version discusses risk, speed, and how small traces like this map behaviour without showing any driver at all.">
+            <img src="images/thumb-series-3-detail-2.jpg" alt="Curved tyre marks on a wet tarmac road with reflected light." loading="lazy" />
+            <span class="photo-overlay-tag">Series III</span>
+          </button>
+          <div class="photo-body">
+            <h3 class="photo-title">Tyre Mark</h3>
+            <p class="photo-meta">Detail · Automotive · 2024</p>
+            <p class="photo-short">Subtle tyre marks sweeping through the lower third of a wet road.</p>
+            <p class="photo-open-hint"><span class="photo-open-dot"></span>Click to view full screen &amp; read more</p>
+          </div>
+        </article>
+
+        <!-- Card 9 -->
+        <article class="photo-card">
+          <button class="photo-thumb-btn" type="button"
+                  data-full="images/series-3-detail-3.jpg"
+                  data-title="Dashboard Glow"
+                  data-meta="Detail · Automotive · 2024"
+                  data-short="Instrument cluster light falling off into deep shadow, aligned with a golden spiral crop."
+                  data-long="This image uses the curve of the dashboard and steering wheel to echo a golden spiral, with the brightest point sitting near the intersection of thirds. By underexposing the cabin, the dials feel almost like a control interface in a cockpit. In assessment, this piece can be read alongside my academic work on speed, control, and how interfaces invite particular behaviours.">
+            <img src="images/thumb-series-3-detail-3.jpg" alt="Illuminated car dashboard and steering wheel in a dark cabin." loading="lazy" />
+            <span class="photo-overlay-tag">Series III</span>
+          </button>
+          <div class="photo-body">
+            <h3 class="photo-title">Dashboard Glow</h3>
+            <p class="photo-meta">Detail · Automotive · 2024</p>
+            <p class="photo-short">Instrument cluster light falling off into deep shadow, aligned with a golden spiral crop.</p>
+            <p class="photo-open-hint"><span class="photo-open-dot"></span>Click to view full screen &amp; read more</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="section" aria-labelledby="about-title">
+      <div class="section-header">
+        <h2 id="about-title" class="section-title">Approach</h2>
+        <p class="section-subtitle">
+          Designed to read well in <span>seconds</span> but reward anyone who chooses to stay longer.
+        </p>
+      </div>
+
+      <div class="about-panel">
+        <div class="about-body">
+          <p>
+            This portfolio is intentionally one page. It keeps the navigation frictionless for assessors and clients, while
+            making it obvious how each image relates back to a clear visual logic: thirds, diagonals, and the gentle
+            asymmetry of the golden ratio.
+          </p>
+          <p>
+            The short captions do the immediate work — what is this, where is it, why does it matter. The expandable
+            write-ups go further when needed, linking individual frames back to themes of privacy, control, and movement.
+            That dual layer of text mirrors how the images themselves work: legible at a glance, but structured enough to
+            stand up to close reading.
+          </p>
+          <ul class="about-list" aria-label="Design notes">
+            <li><span>•</span> One-page layout with keyboard-friendly navigation.</li>
+            <li><span>•</span> Every thumbnail opens full screen with a single click or keypress.</li>
+            <li><span>•</span> Image text is concise by default, with optional depth on demand.</li>
+            <li><span>•</span> Grid and hero use 1:1.618 proportions to echo photographic composition.</li>
+          </ul>
+        </div>
+        <aside class="about-stat" aria-label="Accessibility overview">
+          <div class="about-stat-main">Built with access in mind</div>
+          <div class="about-stat-foot">Accessibility notes</div>
+          <p>
+            Semantic landmarks, alt text for all images, high contrast palette, and a lightbox that works with
+            keyboard input and screen readers. The goal is to make the work easier to see, not harder.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <div class="section-header">
+        <h2 id="contact-title" class="section-title">Next steps</h2>
+        <p class="section-subtitle">
+          Space for an email link, social accounts, or a short statement tailored to an application or exhibition.
+        </p>
+      </div>
+
+      <div class="contact-panel">
+        <p class="contact-label">
+          Ready to bring this way of seeing to a brief, commission, or further study? You can adapt the text here to fit an
+          application, artist statement, or simple contact block.
+        </p>
+        <div class="contact-actions">
+          <a href="mailto:you@example.com" class="pill-link primary">Email for collaborations</a>
+          <span class="contact-chip">Instagram / Website / Print store</span>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; <span id="year"></span> Alex — Photography Portfolio.</p>
+      <div class="footer-links">
+        <a href="#top">Back to top</a>
+        <a href="#portfolio">View work</a>
+        <a href="#about">Approach</a>
+      </div>
+    </footer>
+  </main>
+
+  <section class="lightbox" aria-hidden="true" role="dialog" aria-labelledby="lightbox-title">
+    <div class="lightbox-inner">
+      <button type="button" class="lightbox-close">
+        <span aria-hidden="true">×</span>
+        <span class="visually-hidden">Close image</span>
+      </button>
+      <div class="lightbox-media">
+        <img src="" alt="" class="lightbox-img" />
+      </div>
+      <div class="lightbox-content">
+        <p class="lightbox-kicker" id="lightbox-kicker">Selected work</p>
+        <h2 class="lightbox-title" id="lightbox-title">Title</h2>
+        <p class="lightbox-meta" id="lightbox-meta">Meta</p>
+        <p class="lightbox-short" id="lightbox-short"></p>
+        <button type="button" class="lightbox-toggle" aria-expanded="false" aria-controls="lightbox-long">
+          <span>Read full write-up</span>
+        </button>
+        <p class="lightbox-long" id="lightbox-long" hidden></p>
+        <p class="lightbox-keyhint">Tip: press Esc to close, or click the background.</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      const yearSpan = document.getElementById('year');
+      if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+      }
+
+      const lightbox = document.querySelector('.lightbox');
+      const lightboxImg = document.querySelector('.lightbox-img');
+      const lightboxTitle = document.getElementById('lightbox-title');
+      const lightboxMeta = document.getElementById('lightbox-meta');
+      const lightboxShort = document.getElementById('lightbox-short');
+      const lightboxLong = document.getElementById('lightbox-long');
+      const lightboxToggle = document.querySelector('.lightbox-toggle');
+      const closeBtn = document.querySelector('.lightbox-close');
+      const thumbButtons = document.querySelectorAll('.photo-thumb-btn');
+
+      let lastFocusedElement = null;
+
+      function openLightbox(data) {
+        if (!lightbox || !lightboxImg || !lightboxTitle || !lightboxMeta || !lightboxShort || !lightboxLong) return;
+        lastFocusedElement = document.activeElement;
+
+        lightboxImg.src = data.full;
+        lightboxImg.alt = data.alt;
+        lightboxTitle.textContent = data.title;
+        lightboxMeta.textContent = data.meta;
+        lightboxShort.textContent = data.shortText;
+        lightboxLong.textContent = data.longText;
+
+        lightboxLong.hidden = true;
+        if (lightboxToggle) {
+          lightboxToggle.setAttribute('aria-expanded', 'false');
+          const span = lightboxToggle.querySelector('span');
+          if (span) span.textContent = 'Read full write-up';
+        }
+
+        lightbox.classList.add('is-open');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+
+        if (closeBtn) {
+          closeBtn.focus();
+        }
+      }
+
+      function closeLightbox() {
+        if (!lightbox) return;
+        lightbox.classList.remove('is-open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+
+        if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+          lastFocusedElement.focus();
+        }
+      }
+
+      thumbButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const full = btn.getAttribute('data-full') || '';
+          const title = btn.getAttribute('data-title') || '';
+          const meta = btn.getAttribute('data-meta') || '';
+          const shortText = btn.getAttribute('data-short') || '';
+          const longText = btn.getAttribute('data-long') || '';
+          const img = btn.querySelector('img');
+          const alt = img ? img.alt : '';
+
+          openLightbox({ full, title, meta, shortText, longText, alt });
+        });
+      });
+
+      if (lightboxToggle && lightboxLong) {
+        lightboxToggle.addEventListener('click', () => {
+          const isHidden = lightboxLong.hidden;
+          lightboxLong.hidden = !isHidden;
+          lightboxToggle.setAttribute('aria-expanded', String(isHidden));
+          const span = lightboxToggle.querySelector('span');
+          if (span) {
+            span.textContent = isHidden ? 'Show less' : 'Read full write-up';
+          }
+        });
+      }
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', closeLightbox);
+      }
+
+      if (lightbox) {
+        lightbox.addEventListener('click', (event) => {
+          if (event.target === lightbox) {
+            closeLightbox();
+          }
+        });
+      }
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && lightbox && lightbox.classList.contains('is-open')) {
+          event.preventDefault();
+          closeLightbox();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1053,43 +1053,85 @@
     </section>
 
     <section id="about" class="section" aria-labelledby="about-title">
-      <div class="section-header">
-        <h2 id="about-title" class="section-title">Approach</h2>
-        <p class="section-subtitle">
-          Designed to read well in <span>seconds</span> but reward anyone who chooses to stay longer.
-        </p>
-      </div>
+  <div class="section-header">
+    <h2 id="about-title" class="section-title">Approach</h2>
+    <p class="section-subtitle">
+      A one page space for a hobby that's been with me for years.
+    </p>
+  </div>
 
-      <div class="about-panel">
-        <div class="about-body">
-          <p>
-            This portfolio is intentionally one page. It keeps the navigation frictionless for assessors and clients, while
-            making it obvious how each image relates back to a clear visual logic: thirds, diagonals, and the gentle
-            asymmetry of the golden ratio.
-          </p>
-          <p>
-            The short captions do the immediate work — what is this, where is it, why does it matter. The expandable
-            write-ups go further when needed, linking individual frames back to themes of privacy, control, and movement.
-            That dual layer of text mirrors how the images themselves work: legible at a glance, but structured enough to
-            stand up to close reading.
-          </p>
-          <ul class="about-list" aria-label="Design notes">
-            <li><span>•</span> One-page layout with keyboard-friendly navigation.</li>
-            <li><span>•</span> Every thumbnail opens full screen with a single click or keypress.</li>
-            <li><span>•</span> Image text is concise by default, with optional depth on demand.</li>
-            <li><span>•</span> Grid and hero use 1:1.618 proportions to echo photographic composition.</li>
-          </ul>
-        </div>
-        <aside class="about-stat" aria-label="Accessibility overview">
-          <div class="about-stat-main">Built with access in mind</div>
-          <div class="about-stat-foot">Accessibility notes</div>
-          <p>
-            Semantic landmarks, alt text for all images, high contrast palette, and a lightbox that works with
-            keyboard input and screen readers. The goal is to make the work easier to see, not harder.
-          </p>
-        </aside>
-      </div>
-    </section>
+  <div class="about-panel">
+    <div class="about-body">
+      <p>
+        I first got into photography in school. I bought my first DSLR in 2017 —
+        a Canon EOS 700D — and spent the next few months taking pictures of anything
+        I could point it at. I read everything I could find, experimented constantly,
+        and ended up shooting in full manual before I'd even started my GCSE course.
+      </p>
+
+      <p>
+        I took the subject further during my A-Levels, building two portfolios that
+        collectively earned a B. Not exactly what I hoped for, but it was honest work,
+        and I learned a lot through it. Around the same time, the Welsh Bacc pushed me
+        to map out what a career in photography would actually look like. The conclusion:
+        I'd be permanently skint, no matter how much I enjoyed it.
+      </p>
+
+      <p>
+        So I made the difficult decision to keep photography as a personal hobby and
+        follow a career path where I could actually afford to live — cybersecurity.
+        Because of the nature of that field, I don’t use social media, and I don’t
+        take commissions. This is not a business. This is my personal portfolio, and
+        it will only ever be that.
+      </p>
+
+      <ul class="about-list" aria-label="Design notes">
+        <li><span>•</span> One-page layout that keeps the focus on the images.</li>
+        <li><span>•</span> Every photo opens full screen with one click.</li>
+        <li><span>•</span> Short captions by default with longer reflections available.</li>
+        <li><span>•</span> Composition and layout echo the rule of thirds and golden ratio.</li>
+      </ul>
+    </div>
+
+    <aside class="about-stat" aria-label="Accessibility overview">
+      <div class="about-stat-main">Built with access in mind</div>
+      <div class="about-stat-foot">Accessibility notes</div>
+      <p>
+        Semantic structure, alt text, clear contrast, and a keyboard-friendly lightbox.
+        Nothing over-designed — just simple choices that make the work easier to view.
+      </p>
+    </aside>
+  </div>
+</section>
+
+
+<section id="contact" class="section" aria-labelledby="contact-title">
+  <div class="section-header">
+    <h2 id="contact-title" class="section-title">Next steps</h2>
+    <p class="section-subtitle">
+      Not a commercial portfolio. No bookings, no commissions — just my work.
+    </p>
+  </div>
+
+  <div class="contact-panel">
+    <p class="contact-label">
+      I'm not for hire and I don’t use social media. Photography is something I started
+      young, carried through school and college, and still pick up when life gives me the
+      space. This section is here only for anyone who genuinely needs to reach me.
+    </p>
+    <div class="contact-actions">
+      <span id="safe-email">Contact</span>
+        <script>
+          const user = "alex";
+          const domain = "cyberalex.uk";
+          const e = user + "@" + domain;
+          document.getElementById("safe-email").innerHTML = 
+            "<a href='mailto:" + e + "'>" + e + "</a>";
+        </script>
+    </div>
+  </div>
+</section>
+
 
     <section id="contact" class="section" aria-labelledby="contact-title">
       <div class="section-header">

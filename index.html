@@ -909,6 +909,80 @@
         align-items: flex-start;
       }
     }
+    
+        /* Hero frame is now a button */
+    .hero-frame {
+      cursor: pointer;
+      border: none;
+      padding: 0;
+    }
+    
+    /* Make the lightbox use more of the screen */
+    .lightbox-inner {
+      position: relative;
+      width: min(1200px, 100%);
+      max-height: calc(100vh - 2rem);
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1fr);
+    }
+    
+    .lightbox-media {
+      max-height: 100%;
+    }
+    
+    .lightbox-img {
+      max-height: calc(100vh - 4rem);
+    }
+    
+    /* Long write-up scrolls independently when expanded */
+    .lightbox-long {
+      max-height: 40vh;
+      overflow: auto;
+    }
+    
+    /* Next / previous buttons */
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      background: rgba(3, 5, 10, 0.85);
+      color: var(--muted);
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      cursor: pointer;
+      z-index: 2;
+      transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+    }
+    
+    .lightbox-prev {
+      left: 0.5rem;
+    }
+    
+    .lightbox-next {
+      right: 0.5rem;
+    }
+    
+    .lightbox-nav:hover,
+    .lightbox-nav:focus-visible {
+      background: rgba(245, 196, 81, 0.18);
+      border-color: rgba(245, 196, 81, 0.7);
+      color: var(--accent);
+      outline: none;
+      transform: translateY(-50%) translateY(-1px);
+    }
+    
+    /* Slightly tweak on smaller screens */
+    @media (max-width: 960px) {
+      .lightbox-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -956,19 +1030,18 @@
           </div>
         </div>
 
-        <div class="hero-portrait-wrap" aria-hidden="true">
-          <div class="hero-frame">
+        <div class="hero-portrait-wrap">
+          <button class="hero-frame" type="button" aria-label="Open featured photograph">
             <div class="hero-frame-inner">
-              <!-- Replace this with a self-portrait or key image -->
               <img src="images/hero-placeholder.jpg" alt="" class="hero-frame-photo" />
             </div>
             <div class="hero-note">
               <span class="hero-note-dot"></span>
-              <span>Composed on the thirds</span>
+              <span>Expertly Composed</span>
             </div>
-          </div>
+          </button>
         </div>
-      </div>
+
     </section>
 
     <section id="portfolio" class="section" aria-labelledby="portfolio-title">
@@ -1142,9 +1215,14 @@
         <span aria-hidden="true">×</span>
         <span class="visually-hidden">Close image</span>
       </button>
+  
+      <button type="button" class="lightbox-nav lightbox-prev" aria-label="Previous image">‹</button>
+      <button type="button" class="lightbox-nav lightbox-next" aria-label="Next image">›</button>
+  
       <div class="lightbox-media">
         <img src="" alt="" class="lightbox-img" />
       </div>
+  
       <div class="lightbox-content">
         <p class="lightbox-kicker" id="lightbox-kicker">Selected work</p>
         <h2 class="lightbox-title" id="lightbox-title">Title</h2>
@@ -1154,113 +1232,182 @@
           <span>Read full write-up</span>
         </button>
         <p class="lightbox-long" id="lightbox-long" hidden></p>
-        <p class="lightbox-keyhint">Tip: press Esc to close, or click the background.</p>
+        <p class="lightbox-keyhint">Tip: press Esc to close, ← / → to switch images, or click the background.</p>
       </div>
     </div>
   </section>
 
-  <script>
-    (function () {
-      const yearSpan = document.getElementById('year');
-      if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
+
+<script>
+  (function () {
+    const yearSpan = document.getElementById('year');
+    if (yearSpan) {
+      yearSpan.textContent = new Date().getFullYear();
+    }
+
+    const lightbox = document.querySelector('.lightbox');
+    const lightboxImg = document.querySelector('.lightbox-img');
+    const lightboxTitle = document.getElementById('lightbox-title');
+    const lightboxMeta = document.getElementById('lightbox-meta');
+    const lightboxShort = document.getElementById('lightbox-short');
+    const lightboxLong = document.getElementById('lightbox-long');
+    const lightboxToggle = document.querySelector('.lightbox-toggle');
+    const closeBtn = document.querySelector('.lightbox-close');
+    const thumbButtons = Array.from(document.querySelectorAll('.photo-thumb-btn'));
+    const prevBtn = document.querySelector('.lightbox-prev');
+    const nextBtn = document.querySelector('.lightbox-next');
+    const heroImg = document.querySelector('.hero-frame-photo');
+    const heroFrame = document.querySelector('.hero-frame');
+
+    let lastFocusedElement = null;
+    let currentIndex = 0;
+    let heroTimer = null;
+
+    function openLightbox(data) {
+      if (!lightbox || !lightboxImg || !lightboxTitle || !lightboxMeta || !lightboxShort || !lightboxLong) return;
+      lastFocusedElement = document.activeElement;
+
+      lightboxImg.src = data.full;
+      lightboxImg.alt = data.alt;
+      lightboxTitle.textContent = data.title;
+      lightboxMeta.textContent = data.meta;
+      lightboxShort.textContent = data.shortText;
+      lightboxLong.textContent = data.longText;
+
+      lightboxLong.hidden = true;
+      if (lightboxToggle) {
+        lightboxToggle.setAttribute('aria-expanded', 'false');
+        const span = lightboxToggle.querySelector('span');
+        if (span) span.textContent = 'Read full write-up';
       }
 
-      const lightbox = document.querySelector('.lightbox');
-      const lightboxImg = document.querySelector('.lightbox-img');
-      const lightboxTitle = document.getElementById('lightbox-title');
-      const lightboxMeta = document.getElementById('lightbox-meta');
-      const lightboxShort = document.getElementById('lightbox-short');
-      const lightboxLong = document.getElementById('lightbox-long');
-      const lightboxToggle = document.querySelector('.lightbox-toggle');
-      const closeBtn = document.querySelector('.lightbox-close');
-      const thumbButtons = document.querySelectorAll('.photo-thumb-btn');
-
-      let lastFocusedElement = null;
-
-      function openLightbox(data) {
-        if (!lightbox || !lightboxImg || !lightboxTitle || !lightboxMeta || !lightboxShort || !lightboxLong) return;
-        lastFocusedElement = document.activeElement;
-
-        lightboxImg.src = data.full;
-        lightboxImg.alt = data.alt;
-        lightboxTitle.textContent = data.title;
-        lightboxMeta.textContent = data.meta;
-        lightboxShort.textContent = data.shortText;
-        lightboxLong.textContent = data.longText;
-
-        lightboxLong.hidden = true;
-        if (lightboxToggle) {
-          lightboxToggle.setAttribute('aria-expanded', 'false');
-          const span = lightboxToggle.querySelector('span');
-          if (span) span.textContent = 'Read full write-up';
-        }
-
-        lightbox.classList.add('is-open');
-        lightbox.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-
-        if (closeBtn) {
-          closeBtn.focus();
-        }
-      }
-
-      function closeLightbox() {
-        if (!lightbox) return;
-        lightbox.classList.remove('is-open');
-        lightbox.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-
-        if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
-          lastFocusedElement.focus();
-        }
-      }
-
-      thumbButtons.forEach((btn) => {
-        btn.addEventListener('click', () => {
-          const full = btn.getAttribute('data-full') || '';
-          const title = btn.getAttribute('data-title') || '';
-          const meta = btn.getAttribute('data-meta') || '';
-          const shortText = btn.getAttribute('data-short') || '';
-          const longText = btn.getAttribute('data-long') || '';
-          const img = btn.querySelector('img');
-          const alt = img ? img.alt : '';
-
-          openLightbox({ full, title, meta, shortText, longText, alt });
-        });
-      });
-
-      if (lightboxToggle && lightboxLong) {
-        lightboxToggle.addEventListener('click', () => {
-          const isHidden = lightboxLong.hidden;
-          lightboxLong.hidden = !isHidden;
-          lightboxToggle.setAttribute('aria-expanded', String(isHidden));
-          const span = lightboxToggle.querySelector('span');
-          if (span) {
-            span.textContent = isHidden ? 'Show less' : 'Read full write-up';
-          }
-        });
-      }
+      lightbox.classList.add('is-open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
 
       if (closeBtn) {
-        closeBtn.addEventListener('click', closeLightbox);
+        closeBtn.focus();
       }
+    }
 
-      if (lightbox) {
-        lightbox.addEventListener('click', (event) => {
-          if (event.target === lightbox) {
-            closeLightbox();
-          }
-        });
+    function getDataFromButton(btn) {
+      const full = btn.getAttribute('data-full') || '';
+      const title = btn.getAttribute('data-title') || '';
+      const meta = btn.getAttribute('data-meta') || '';
+      const shortText = btn.getAttribute('data-short') || '';
+      const longText = btn.getAttribute('data-long') || '';
+      const img = btn.querySelector('img');
+      const alt = img ? img.alt : '';
+      return { full, title, meta, shortText, longText, alt };
+    }
+
+    function openLightboxByIndex(index) {
+      if (!thumbButtons.length) return;
+      currentIndex = (index + thumbButtons.length) % thumbButtons.length;
+      const btn = thumbButtons[currentIndex];
+      openLightbox(getDataFromButton(btn));
+    }
+
+    function closeLightbox() {
+      if (!lightbox) return;
+      lightbox.classList.remove('is-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+
+      if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+        lastFocusedElement.focus();
       }
+    }
 
-      document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && lightbox && lightbox.classList.contains('is-open')) {
-          event.preventDefault();
+    // Thumbnail click -> open correct image
+    thumbButtons.forEach((btn, index) => {
+      btn.addEventListener('click', () => {
+        openLightboxByIndex(index);
+      });
+    });
+
+    // Next / prev buttons in lightbox
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => openLightboxByIndex(currentIndex - 1));
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => openLightboxByIndex(currentIndex + 1));
+    }
+
+    // Toggle long write-up
+    if (lightboxToggle && lightboxLong) {
+      lightboxToggle.addEventListener('click', () => {
+        const isHidden = lightboxLong.hidden;
+        lightboxLong.hidden = !isHidden;
+        lightboxToggle.setAttribute('aria-expanded', String(isHidden));
+        const span = lightboxToggle.querySelector('span');
+        if (span) {
+          span.textContent = isHidden ? 'Show less' : 'Read full write-up';
+        }
+      });
+    }
+
+    // Close behaviour
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeLightbox);
+    }
+
+    if (lightbox) {
+      lightbox.addEventListener('click', (event) => {
+        if (event.target === lightbox) {
           closeLightbox();
         }
       });
-    })();
-  </script>
+    }
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && lightbox && lightbox.classList.contains('is-open')) {
+        event.preventDefault();
+        closeLightbox();
+      }
+      if (event.key === 'ArrowRight' && lightbox && lightbox.classList.contains('is-open')) {
+        event.preventDefault();
+        openLightboxByIndex(currentIndex + 1);
+      }
+      if (event.key === 'ArrowLeft' && lightbox && lightbox.classList.contains('is-open')) {
+        event.preventDefault();
+        openLightboxByIndex(currentIndex - 1);
+      }
+    });
+
+    // HERO SLIDESHOW — cycle through selected work
+    function updateHeroFromIndex(index) {
+      if (!heroImg || !thumbButtons.length) return;
+      currentIndex = (index + thumbButtons.length) % thumbButtons.length;
+      const btn = thumbButtons[currentIndex];
+      const data = getDataFromButton(btn);
+
+      heroImg.src = data.full || heroImg.src;
+      heroImg.alt = data.alt || 'Featured photograph';
+
+      // Optional: colour the hero background from data attributes if you add them later:
+      // data-hero-accent1 / data-hero-accent2 on each .photo-thumb-btn
+      const accent1 = btn.getAttribute('data-hero-accent1');
+      const accent2 = btn.getAttribute('data-hero-accent2');
+      if (accent1) document.documentElement.style.setProperty('--hero-accent-1', accent1);
+      if (accent2) document.documentElement.style.setProperty('--hero-accent-2', accent2);
+    }
+
+    if (thumbButtons.length) {
+      updateHeroFromIndex(0);
+
+      heroTimer = setInterval(() => {
+        updateHeroFromIndex(currentIndex + 1);
+      }, 8000);
+    }
+
+    if (heroFrame) {
+      heroFrame.addEventListener('click', () => {
+        openLightboxByIndex(currentIndex);
+      });
+    }
+  })();
+</script>
+
 </body>
 </html>

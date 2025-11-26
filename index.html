@@ -34,9 +34,50 @@
   "name": "Alex",
   "description": "A photographer rediscovering an old hobby — exploring landscapes, privacy concepts, and automotive detail through instinctive composition.",
   "url": "https://photography.cyberalex.uk",
-  "image": "https://yourwebsite.com/images/og-preview.jpg"
+  "image": "https://photography.cyberalex.uk/images/og-preview.jpg"
 }
 </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ImageObject",
+      "name": "Rose That Stayed",
+      "description": "Close-up of a deep purple rose against a pure black background, lit softly from one side so the petals look velvety and three-dimensional.",
+      "contentUrl": "https://photography.cyberalex.uk/images/rose-memory-still-life.jpg",
+      "thumbnailUrl": "https://photography.cyberalex.uk/images/thumb-rose-memory-still-life.jpg",
+      "creator": {
+        "@type": "Person",
+        "name": "Alex"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "name": "Broken Screen Study",
+      "description": "Abstract close-up of a cracked phone screen near a window, with soft blur and light streaks running vertically through the frame.",
+      "contentUrl": "https://photography.cyberalex.uk/images/broken-phone-screen-experiment.jpg",
+      "thumbnailUrl": "https://photography.cyberalex.uk/images/thumb-broken-phone-screen-experiment.jpg",
+      "creator": {
+        "@type": "Person",
+        "name": "Alex"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "name": "Five AM Valley",
+      "description": "Wide view of a Welsh hillside in dark silhouette on the right, with misty valleys on the left and a gradient sunrise sky from deep blue to warm orange.",
+      "contentUrl": "https://photography.cyberalex.uk/images/welsh-valley-sunrise-landscape.jpg",
+      "thumbnailUrl": "https://photography.cyberalex.uk/images/thumb-welsh-valley-sunrise-landscape.jpg",
+      "creator": {
+        "@type": "Person",
+        "name": "Alex"
+      }
+    }
+  ]
+}
+</script>
+
 
   
   <style>
@@ -940,176 +981,74 @@
       </div>
 
       <div class="grid-thirds" aria-label="Portfolio grid">
-        <!-- Card 1 -->
-        <article class="photo-card">
-          <button class="photo-thumb-btn" type="button"
-                  data-full="images/series-1-landscape-1.jpg"
-                  data-title="Reservoir Edge"
-                  data-meta="Landscape · 2023"
-                  data-short="Soft evening light falling across the dam wall, anchored to the lower third of the frame."
-                  data-long="Shot on a late autumn evening as the light dropped behind the valley. The decision to hold the dam wall to the lower third gives the water and sky room to breathe, while still grounding the image with a clear line. I waited for the lone figure to step into the right third, adding a sense of scale and quiet narrative without overwhelming the geometry of the scene.">
-            <img src="images/thumb-series-1-landscape-1.jpg" alt="Dam wall cutting horizontally across a still reservoir at dusk." loading="lazy" />
-            <span class="photo-overlay-tag">Series I</span>
-          </button>
-          <div class="photo-body">
-            <h3 class="photo-title">Reservoir Edge</h3>
-            <p class="photo-meta">Landscape · 2023</p>
-            <p class="photo-short">Soft evening light falling across the dam wall, anchored to the lower third of the frame.</p>
-            <p class="photo-open-hint"><span class="photo-open-dot"></span>Click to view full screen &amp; read more</p>
-          </div>
-        </article>
+        <!-- ROSE — IMAGE 1 -->
+<article class="photo-card">
+  <button class="photo-thumb-btn" type="button"
+          data-full="images/rose-memory-still-life.jpg"
+          data-title="Rose That Stayed"
+          data-meta="Still life · Personal"
+          data-short="A single purple rose from a bouquet that faded after my grandfather died, held in the softest light."
+          data-long="This rose came from flowers my mum was given after her dad passed away. The bouquet didn’t last long, but this frame did. I set it against a blackout background and kept the light tight, so all the attention sits in the folds of the petals. It was one of the first times picking the camera back up felt like a way of keeping something small and quiet from disappearing completely.">
+    <img
+      src="images/thumb-rose-memory-still-life.jpg"
+      alt="Close-up of a deep purple rose against a pure black background, lit softly from one side so the petals look velvety and three-dimensional."
+      loading="lazy"
+    />
+    <span class="photo-overlay-tag">Rediscovery</span>
+  </button>
+  <div class="photo-body">
+    <h3 class="photo-title">Rose That Stayed</h3>
+    <p class="photo-meta">Still life · Personal</p>
+    <p class="photo-short">A single purple rose from a sympathy bouquet, photographed long after the flowers were gone.</p>
+    <p class="photo-open-hint"><span class="photo-open-dot"></span>Click to view full screen &amp; read more</p>
+  </div>
+</article>
 
-        <!-- Card 2 -->
-        <article class="photo-card">
-          <button class="photo-thumb-btn" type="button"
-                  data-full="images/series-1-landscape-2.jpg"
-                  data-title="Fog Line"
-                  data-meta="Landscape · 2023"
-                  data-short="A tree line dissolving into fog, arranged as a gentle diagonal through the frame."
-                  data-long="This image explores how atmosphere can become a compositional tool. The tree line traces a loose diagonal from the lower left third to the upper right, with the densest contrast held away from the centre. By exposing for the highlights and letting mid-tones fall away, the fog does most of the work, simplifying the scene into shape and rhythm.">
-            <img src="images/thumb-series-1-landscape-2.jpg" alt="Foggy tree line receding into soft white mist." loading="lazy" />
-            <span class="photo-overlay-tag">Series I</span>
-          </button>
-          <div class="photo-body">
-            <h3 class="photo-title">Fog Line</h3>
-            <p class="photo-meta">Landscape · 2023</p>
-            <p class="photo-short">A tree line dissolving into fog, arranged as a gentle diagonal through the frame.</p>
-            <p class="photo-open-hint"><span class="photo-open-dot"></span>Click to view full screen &amp; read more</p>
-          </div>
-        </article>
+<!-- BROKEN SCREEN — IMAGE 2 -->
+<article class="photo-card">
+  <button class="photo-thumb-btn" type="button"
+          data-full="images/broken-phone-screen-experiment.jpg"
+          data-title="Broken Screen Study"
+          data-meta="Experiment · College"
+          data-short="Light sliding across a shattered phone screen, shot with the lens reversed during an A-level warm-up task."
+          data-long="In our first A-level photography session we were told to get comfortable with the cameras. I was already there, so I popped the lens off, flipped it round, and started freelensing. A classmate’s broken phone ended up propped in the window, catching this strange light. The shallow focus pulls you into the cracks and reflections rather than the object itself. It’s a small reminder that most of my favourite images happen when I’m quietly ignoring the brief and just playing with the kit.">
+    <img
+      src="images/thumb-broken-phone-screen-experiment.jpg"
+      alt="Abstract close-up of a cracked phone screen near a window, with soft blur and light streaks running vertically through the frame."
+      loading="lazy"
+    />
+    <span class="photo-overlay-tag">Rediscovery</span>
+  </button>
+  <div class="photo-body">
+    <h3 class="photo-title">Broken Screen Study</h3>
+    <p class="photo-meta">Experiment · College</p>
+    <p class="photo-short">Shattered glass, window light, and a reversed lens turning a broken phone into something strangely calm.</p>
+    <p class="photo-open-hint"><span class="photo-open-dot"></span>Click to view full screen &amp; read more</p>
+  </div>
+</article>
 
-        <!-- Card 3 -->
-        <article class="photo-card">
-          <button class="photo-thumb-btn" type="button"
-                  data-full="images/series-1-landscape-3.jpg"
-                  data-title="Overpass"
-                  data-meta="Urban landscape · 2023"
-                  data-short="Late light catching the underside of an overpass, held deliberately on the upper third."
-                  data-long="The overpass splits the frame on the upper third, leaving negative space beneath for traffic and shadow. I was interested in how the structure divides the sky into unequal bands, echoing the golden ratio rather than a perfect half. The single car in the lower right third is almost an afterthought, giving just enough life to a heavy concrete scene.">
-            <img src="images/thumb-series-1-landscape-3.jpg" alt="Concrete overpass with warm sunlight cutting across the underside." loading="lazy" />
-            <span class="photo-overlay-tag">Series I</span>
-          </button>
-          <div class="photo-body">
-            <h3 class="photo-title">Overpass</h3>
-            <p class="photo-meta">Urban landscape · 2023</p>
-            <p class="photo-short">Late light catching the underside of an overpass, held deliberately on the upper third.</p>
-            <p class="photo-open-hint"><span class="photo-open-dot"></span>Click to view full screen &amp; read more</p>
-          </div>
-        </article>
-
-        <!-- Card 4 -->
-        <article class="photo-card">
-          <button class="photo-thumb-btn" type="button"
-                  data-full="images/series-2-privacy-1.jpg"
-                  data-title="Observed"
-                  data-meta="Conceptual · Privacy · 2022"
-                  data-short="A CCTV dome isolated on the right third, framed by blank concrete and sky."
-                  data-long="Part of a larger body of work on surveillance and everyday spaces. Positioning the CCTV dome on the upper right third leaves a large negative field of concrete, emphasising how small the physical device is compared to the psychological weight it carries. The golden-spiral crop leads the eye from the lower left shadows up to that single point of observation.">
-            <img src="images/thumb-series-2-privacy-1.jpg" alt="CCTV dome on a concrete building against pale sky." loading="lazy" />
-            <span class="photo-overlay-tag">Series II</span>
-          </button>
-          <div class="photo-body">
-            <h3 class="photo-title">Observed</h3>
-            <p class="photo-meta">Conceptual · Privacy · 2022</p>
-            <p class="photo-short">A CCTV dome isolated on the right third, framed by blank concrete and sky.</p>
-            <p class="photo-open-hint"><span class="photo-open-dot"></span>Click to view full screen &amp; read more</p>
-          </div>
-        </article>
-
-        <!-- Card 5 -->
-        <article class="photo-card">
-          <button class="photo-thumb-btn" type="button"
-                  data-full="images/series-2-privacy-2.jpg"
-                  data-title="Redacted Window"
-                  data-meta="Conceptual · Privacy · 2022"
-                  data-short="A lit window obscured by blinds, held to the left third against deep shadow."
-                  data-long="Here the window is both subject and censor. By placing it on the left third and letting the rest of the frame fall into darkness, the image suggests information that is present but withheld. The glow from the blinds is the brightest tone in the frame, pulling the eye repeatedly back to the idea of partial access rather than total visibility.">
-            <img src="images/thumb-series-2-privacy-2.jpg" alt="Bright window blinds glowing in a dark residential street." loading="lazy" />
-            <span class="photo-overlay-tag">Series II</span>
-          </button>
-          <div class="photo-body">
-            <h3 class="photo-title">Redacted Window</h3>
-            <p class="photo-meta">Conceptual · Privacy · 2022</p>
-            <p class="photo-short">A lit window obscured by blinds, held to the left third against deep shadow.</p>
-            <p class="photo-open-hint"><span class="photo-open-dot"></span>Click to view full screen &amp; read more</p>
-          </div>
-        </article>
-
-        <!-- Card 6 -->
-        <article class="photo-card">
-          <button class="photo-thumb-btn" type="button"
-                  data-full="images/series-2-privacy-3.jpg"
-                  data-title="Signal"
-                  data-meta="Conceptual · Privacy · 2022"
-                  data-short="A lone phone screen lighting a face, cropped into the lower golden rectangle."
-                  data-long="The composition follows a loose golden rectangle, with the face and phone occupying the inner spiral. Keeping the rest of the frame nearly black emphasises how much of the subject's world is being mediated through that single glowing rectangle. The longer write-up connects this piece to ideas of consent, data trails, and the comfort we take from small personal screens.">
-            <img src="images/thumb-series-2-privacy-3.jpg" alt="Face lit only by a phone screen in a dark environment." loading="lazy" />
-            <span class="photo-overlay-tag">Series II</span>
-          </button>
-          <div class="photo-body">
-            <h3 class="photo-title">Signal</h3>
-            <p class="photo-meta">Conceptual · Privacy · 2022</p>
-            <p class="photo-short">A lone phone screen lighting a face, cropped into the lower golden rectangle.</p>
-            <p class="photo-open-hint"><span class="photo-open-dot"></span>Click to view full screen &amp; read more</p>
-          </div>
-        </article>
-
-        <!-- Card 7 -->
-        <article class="photo-card">
-          <button class="photo-thumb-btn" type="button"
-                  data-full="images/series-3-detail-1.jpg"
-                  data-title="Brake Line"
-                  data-meta="Detail · Automotive · 2024"
-                  data-short="A close crop of a brake disc and caliper, held exactly on a vertical third."
-                  data-long="Part of a series exploring engineering details. The brake disc sits on a perfect vertical third, with the calliper intersecting a horizontal third. The texture of the metal and dust becomes almost topographical when lit from a shallow angle. This image links back to my broader interest in cars and control, using familiar components as sculptural forms.">
-            <img src="images/thumb-series-3-detail-1.jpg" alt="Close-up of a brake disc and caliper with directional light." loading="lazy" />
-            <span class="photo-overlay-tag">Series III</span>
-          </button>
-          <div class="photo-body">
-            <h3 class="photo-title">Brake Line</h3>
-            <p class="photo-meta">Detail · Automotive · 2024</p>
-            <p class="photo-short">A close crop of a brake disc and caliper, held exactly on a vertical third.</p>
-            <p class="photo-open-hint"><span class="photo-open-dot"></span>Click to view full screen &amp; read more</p>
-          </div>
-        </article>
-
-        <!-- Card 8 -->
-        <article class="photo-card">
-          <button class="photo-thumb-btn" type="button"
-                  data-full="images/series-3-detail-2.jpg"
-                  data-title="Tyre Mark"
-                  data-meta="Detail · Automotive · 2024"
-                  data-short="Subtle tyre marks sweeping through the lower third of a wet road."
-                  data-long="Shot just after rain, before the surface fully dried. The tyre marks arc across the lower third while street lights reflect in the upper sections. It reads almost as a graph of movement. The long version discusses risk, speed, and how small traces like this map behaviour without showing any driver at all.">
-            <img src="images/thumb-series-3-detail-2.jpg" alt="Curved tyre marks on a wet tarmac road with reflected light." loading="lazy" />
-            <span class="photo-overlay-tag">Series III</span>
-          </button>
-          <div class="photo-body">
-            <h3 class="photo-title">Tyre Mark</h3>
-            <p class="photo-meta">Detail · Automotive · 2024</p>
-            <p class="photo-short">Subtle tyre marks sweeping through the lower third of a wet road.</p>
-            <p class="photo-open-hint"><span class="photo-open-dot"></span>Click to view full screen &amp; read more</p>
-          </div>
-        </article>
-
-        <!-- Card 9 -->
-        <article class="photo-card">
-          <button class="photo-thumb-btn" type="button"
-                  data-full="images/series-3-detail-3.jpg"
-                  data-title="Dashboard Glow"
-                  data-meta="Detail · Automotive · 2024"
-                  data-short="Instrument cluster light falling off into deep shadow, aligned with a golden spiral crop."
-                  data-long="This image uses the curve of the dashboard and steering wheel to echo a golden spiral, with the brightest point sitting near the intersection of thirds. By underexposing the cabin, the dials feel almost like a control interface in a cockpit. In assessment, this piece can be read alongside my academic work on speed, control, and how interfaces invite particular behaviours.">
-            <img src="images/thumb-series-3-detail-3.jpg" alt="Illuminated car dashboard and steering wheel in a dark cabin." loading="lazy" />
-            <span class="photo-overlay-tag">Series III</span>
-          </button>
-          <div class="photo-body">
-            <h3 class="photo-title">Dashboard Glow</h3>
-            <p class="photo-meta">Detail · Automotive · 2024</p>
-            <p class="photo-short">Instrument cluster light falling off into deep shadow, aligned with a golden spiral crop.</p>
-            <p class="photo-open-hint"><span class="photo-open-dot"></span>Click to view full screen &amp; read more</p>
-          </div>
-        </article>
+<!-- MORNING LANDSCAPE — IMAGE 3 -->
+<article class="photo-card">
+  <button class="photo-thumb-btn" type="button"
+          data-full="images/welsh-valley-sunrise-landscape.jpg"
+          data-title="Five AM Valley"
+          data-meta="Landscape · Early morning"
+          data-short="A Welsh hillside in silhouette with bands of orange and blue sky, shot around 5am after a lot of trial and error."
+          data-long="This was taken stupidly early on my old DSLR, after a run of frames that were either too dark, too noisy, or just badly timed. I kept nudging the shutter speed and angle until the ridge sat cleanly on the upper third and the valley mist started to show. The sky shifted from deep blue into orange while I was figuring it out. It’s one of the first images that reminded me how much I enjoy being outside with a tripod when most people are still asleep.">
+    <img
+      src="images/thumb-welsh-valley-sunrise-landscape.jpg"
+      alt="Wide view of a Welsh hillside in dark silhouette on the right, with misty valleys on the left and a gradient sunrise sky from deep blue to warm orange."
+      loading="lazy"
+    />
+    <span class="photo-overlay-tag">Rediscovery</span>
+  </button>
+  <div class="photo-body">
+    <h3 class="photo-title">Five AM Valley</h3>
+    <p class="photo-meta">Landscape · Early morning</p>
+    <p class="photo-short">A 5am hillside silhouette with valley mist and a slow, layered sunrise sky.</p>
+    <p class="photo-open-hint"><span class="photo-open-dot"></span>Click to view full screen &amp; read more</p>
+  </div>
+</article>
       </div>
     </section>
 

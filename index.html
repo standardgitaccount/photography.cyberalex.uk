@@ -376,7 +376,13 @@
       border: 1px solid rgba(255, 255, 255, 0.16);
       overflow: hidden;
       position: relative;
+      background:
+        radial-gradient(circle at 30% 0%, rgba(255, 255, 255, 0.05) 0, transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(0, 0, 0, 0.7) 0, transparent 65%),
+        #05070d;
+      transition: background 1.4s ease;
     }
+
 
     .hero-frame-photo {
       width: 100%;
@@ -1009,7 +1015,7 @@
 
         /* Smooth background transition for hero */
     .hero {
-      transition: background 0.6s ease;
+      transition: background 1.4s ease;
     }
     
     /* Hero slide animation */
@@ -1306,6 +1312,7 @@
     const heroSection = document.querySelector('.hero');
     const heroFrame = document.querySelector('.hero-frame');
     const heroImg = document.querySelector('.hero-frame-photo');
+    const heroFrameInner = document.querySelector('.hero-frame-inner');
 
     let lastFocusedElement = null;
     let currentIndex = 0;
@@ -1437,22 +1444,30 @@
     let heroIndex = 0;
 
     function applyHeroSlide(slide) {
-      if (!heroImg || !heroSection || !heroFrame) return;
-
+      if (!heroImg || !heroSection || !heroFrame || !heroFrameInner) return;
+    
       heroImg.src = slide.src;
       heroImg.alt = slide.alt;
-
+    
+      // Outer hero background
       heroSection.style.background =
         `radial-gradient(circle at 0 0, ${slide.bg1} 0, transparent 60%),
          radial-gradient(circle at 100% 100%, ${slide.bg2} 0, transparent 60%),
          linear-gradient(135deg, rgba(13, 18, 30, 0.96), rgba(7, 9, 16, 0.98))`;
-
+    
+      // Inner frame background (use swapped colours for contrast)
+      heroFrameInner.style.background =
+        `radial-gradient(circle at 20% 0%, ${slide.bg2} 0, transparent 55%),
+         radial-gradient(circle at 100% 100%, ${slide.bg1} 0, transparent 60%),
+         #05070d`;
+    
       heroFrame.classList.remove('swoosh');
       void heroFrame.offsetWidth; // restart animation
       heroFrame.classList.add('swoosh');
-
+    
       currentIndex = slide.index;
     }
+
 
     function nextHeroSlide() {
       heroIndex = (heroIndex + 1) % heroSlides.length;

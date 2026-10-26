@@ -1,2106 +1,650 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en-GB" class="no-js">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Alex — Photography Portfolio</title>
-  <meta name="description" content="One-page accessible photography portfolio showcasing selected work with fullscreen viewing and reflective write-ups." />
-
-  <!-- Favicon / Web Icon -->
-  <link rel="icon" type="image/png" href="logo.png">
-  <link rel="shortcut icon" type="image/png" href="logo.png">
-  <link rel="apple-touch-icon" href="logo.png">
-
-  <!-- High-res icon for mobile PWA / Windows tiles -->
-  <link rel="icon" sizes="512x512" href="logo.png">
-
-  <!-- SEO: Primary meta tags -->
-  <meta name="title" content="Alex Photography — Rediscovering the Joy of Image-Making">
-  <meta name="description" content="A one-page photography portfolio built around the joy of rediscovering an old hobby. Landscapes, privacy-themed conceptual work, and automotive details captured with care, simplicity, and instinct.">
-  <meta name="keywords" content="photography hobby, rediscovering photography, landscape photos, conceptual photography, automotive detail photography, rule of thirds portfolio, one page gallery">
-
-  <!-- SEO: Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Alex Photography — Rediscovering the Joy of Image-Making">
-  <meta property="og:description" content="A personal one-page photography portfolio built from the excitement of returning to an old creative hobby. Fullscreen viewing and short reflective notes.">
-  <meta property="og:image" content="images/og-preview.jpg">
-  <meta property="og:url" content="https://lumasphere.art">
-
-  <!-- SEO: Twitter Cards -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Alex Photography — Rediscovering the Joy of Image-Making">
-  <meta name="twitter:description" content="A clean, simple photography portfolio celebrating the process of picking the camera up again.">
-  <meta name="twitter:image" content="images/og-preview.jpg">
-
-  <!-- SEO: Canonical -->
-  <link rel="canonical" href="https://lumasphere.art">
-
-  <!-- goatcounter -->
-  <script data-goatcounter="https://lumasphere.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
-  
-  <!-- SEO: Structured Data (JSON-LD) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Alex",
-    "description": "A photographer rediscovering an old hobby — exploring landscapes, privacy concepts, and automotive detail through instinctive composition.",
-    "url": "https://lumasphere.art",
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>lumasphere.art · Photography</title>
+<meta name="description" content="Photos by Alex: light against dark, across close ups, plants, landscapes, fog and the odd coin.">
+<link rel="canonical" href="https://lumasphere.art/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="lumasphere.art">
+<meta property="og:title" content="lumasphere.art · Photography">
+<meta property="og:description" content="Photos by Alex: light against dark, across close ups, plants, landscapes, fog and the odd coin.">
+<meta property="og:url" content="https://lumasphere.art/">
+<meta property="og:image" content="https://lumasphere.art/images/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A hooded figure silhouetted in a ring of orange light inside a tunnel.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="lumasphere.art · Photography">
+<meta name="twitter:description" content="Photos by Alex: light against dark, across close ups, plants, landscapes, fog and the odd coin.">
+<meta name="twitter:image" content="https://lumasphere.art/images/og-cover.jpg">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="images/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0a0a0c">
+<meta name="author" content="Alex">
+<script>document.documentElement.className="js";</script>
+<style>
+  :root{
+    --ink:#0a0a0c; --ink-raised:#101015;
+    --paper:#ece8e1; --paper-soft:#d9d4cb; --paper-mute:#cfcabf; --paper-dim:#9a958c;
+    --hair:rgba(236,232,225,.12); --hair-soft:rgba(236,232,225,.07); --hair-strong:rgba(236,232,225,.22);
+    --accent:#ece8e1; --maxw:1120px; --radius:6px;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+    --ease:cubic-bezier(.2,.7,.2,1);
   }
-  </script>
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;scroll-padding-top:4.5rem}
+  @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+  body{margin:0;
+    background:var(--ink);
+    color:var(--paper);font-family:var(--sans);
+    font-size:clamp(1rem,.96rem + .2vw,1.075rem);line-height:1.65;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  ::selection{background:rgba(236,232,225,.85);color:var(--ink)}
+  .skip{position:absolute;left:-999px;top:0;z-index:60;background:var(--paper);color:var(--ink);
+    padding:.6rem 1rem;border-radius:3px;font:600 .9rem/1 var(--sans)}
+  .skip:focus{left:1rem;top:1rem}
+  a{color:inherit}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+  .wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:clamp(1.25rem,5vw,3rem)}
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "ImageObject",
-        "name": "Rose That Stayed",
-        "description": "Close-up of a deep purple rose against a pure black background, lit softly from one side so the petals look velvety and three-dimensional.",
-        "contentUrl": "https://lumasphere.art/images/rose-memory-still-life.jpg",
-        "thumbnailUrl": "https://lumasphere.art/images/rose-memory-still-life.jpg",
-        "creator": { "@type": "Person", "name": "Alex" }
-      },
-      {
-        "@type": "ImageObject",
-        "name": "Broken Screen Study",
-        "description": "Abstract close-up of a cracked phone screen near a window, with soft blur and light streaks running vertically through the frame.",
-        "contentUrl": "https://lumasphere.art/images/broken-phone-screen-experiment.jpg",
-        "thumbnailUrl": "https://lumasphere.art/images/broken-phone-screen-experiment.jpg",
-        "creator": { "@type": "Person", "name": "Alex" }
-      },
-      {
-        "@type": "ImageObject",
-        "name": "Five AM Valley",
-        "description": "Wide view of a Welsh hillside in dark silhouette on the right, with misty valleys on the left and a gradient sunrise sky from deep blue to warm orange.",
-        "contentUrl": "https://lumasphere.art/images/welsh-valley-sunrise-landscape.jpg",
-        "thumbnailUrl": "https://lumasphere.art/images/welsh-valley-sunrise-landscape.jpg",
-        "creator": { "@type": "Person", "name": "Alex" }
-      }
-    ]
+  /* ---------- Masthead ---------- */
+  .masthead{padding-block:clamp(3rem,8vh,5.5rem) clamp(2.5rem,6vh,3.5rem)}
+  .eyebrow{font-family:var(--mono);font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;
+    color:var(--paper-dim);margin:0 0 1.2rem}
+  .wordmark{font-family:var(--serif);font-weight:400;font-size:clamp(2.6rem,2rem + 3.5vw,4rem);
+    line-height:1;letter-spacing:-.01em;margin:0}
+  .tagline{max-width:58ch;margin:1.5rem 0 0;color:var(--paper-soft);
+    font-size:clamp(1.02rem,1rem + .35vw,1.18rem);line-height:1.6}
+  .tagline em{font-family:var(--serif);font-style:italic;color:var(--paper)}
+  .hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.75rem;margin-top:1.6rem}
+  .btn{display:inline-flex;align-items:center;gap:.55rem;font-family:var(--sans);font-size:.92rem;font-weight:500;
+    text-decoration:none;color:var(--ink);background:var(--paper);border:1px solid var(--paper);
+    border-radius:3px;padding:.75rem 1.15rem;line-height:1.2;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+  .btn:hover{background:#fff;border-color:#fff}
+  .btn--ghost{background:transparent;color:var(--paper);border-color:var(--hair-strong)}
+  .btn--ghost:hover{background:rgba(236,232,225,.06);border-color:var(--paper)}
+
+  /* Sticky nav */
+  .nav{position:sticky;top:0;z-index:40;background:rgba(10,10,12,.82);
+    -webkit-backdrop-filter:saturate(140%) blur(12px);backdrop-filter:saturate(140%) blur(12px);
+    border-bottom:1px solid transparent;transition:border-color .25s}
+  .nav.is-stuck{border-bottom-color:var(--hair)}
+  .nav ul{list-style:none;margin:0 auto;padding-block:1rem .65rem;display:flex;align-items:center;gap:1rem 2rem;overflow-x:auto;scrollbar-width:none}
+  .nav ul::-webkit-scrollbar{display:none}
+  .nav li{flex:0 0 auto}
+  .nav .nav__logo a{display:block;padding:0;border:0;line-height:0}
+  .nav__logo img{width:32px;height:32px;display:block;transition:transform .25s var(--ease)}
+  .nav__logo a:hover img{transform:rotate(-12deg)}
+  .nav li:last-child{margin-left:auto}
+  .nav a,.nav__btn{font-family:var(--sans);font-size:.9rem;letter-spacing:0;
+    text-decoration:none;color:var(--paper-dim);padding:0 0 .35rem;border:0;border-bottom:1px solid transparent;
+    background:none;cursor:pointer;transition:color .2s,border-color .2s}
+  .nav a:hover,.nav__btn:hover{color:var(--paper)}
+  .nav a[aria-current="true"]{color:var(--paper);border-color:var(--paper)}
+  .nav__btn{color:var(--paper)}
+
+  /* ---------- Sections ---------- */
+  .set{border-top:1px solid var(--hair)}
+  .set__inner{padding-block:clamp(3.75rem,10vh,6.5rem) clamp(1rem,3vh,2rem)}
+  .chapter{max-width:60ch;margin-bottom:clamp(2rem,5vh,3rem)}
+  .chapter__title{font-family:var(--serif);font-style:italic;font-weight:400;
+    font-size:clamp(2.6rem,2rem + 3.2vw,4.2rem);line-height:.98;letter-spacing:-.01em;margin:0}
+  .chapter__lede{margin:1.2rem 0 0;color:var(--paper-soft);max-width:52ch}
+  .chapter__lede .term{font-family:var(--serif);font-style:italic;color:var(--paper)}
+
+  /* About */
+  .about{max-width:64ch}
+  .about p{margin:0 0 1.2rem;color:var(--paper-soft)}
+  .about .lead{font-size:1.12em;color:var(--paper)}
+  .about em{font-family:var(--serif);font-style:italic;color:var(--paper)}
+
+  /* Photo plates */
+  .plate{display:flex;gap:clamp(1.75rem,5vw,4rem);align-items:center;
+    padding-block:clamp(2.5rem,7vh,5rem);border-top:1px solid var(--hair-soft)}
+  .plate--flip{flex-direction:row-reverse}
+  .plate__media{flex:1 1 50%;min-width:0}
+  .plate__body{flex:1 1 50%;min-width:0;max-width:38ch}
+  figure{margin:0}
+  .frame{position:relative;display:block;background:#000;border:1px solid var(--hair);
+    border-radius:3px;overflow:hidden;
+    box-shadow:0 0 90px -34px var(--accent),0 36px 70px -34px rgba(0,0,0,.85);
+    transition:transform .35s ease,box-shadow .35s ease}
+  .shot{display:block;width:100%;margin:0;padding:0;border:0;background:#000;cursor:zoom-in}
+  .shot img{display:block;width:100%;height:auto;transition:transform .5s ease}
+  @media (hover:hover) and (prefers-reduced-motion:no-preference){
+    .frame:hover,.frame:focus-within{transform:translateY(-6px);
+      box-shadow:0 0 120px -26px var(--accent),0 44px 80px -32px rgba(0,0,0,.92)}
+    .frame:hover .shot img{transform:scale(1.035)}
   }
-  </script>
-
-  <style>
-    :root {
-      --bg: #040609;
-      --bg-soft: #0b1119;
-      --bg-softer: #121823;
-      --text: #f7f7f7;
-      --muted: #a9b3c5;
-      --accent: #f5c451;
-      --accent-soft: rgba(245, 196, 81, 0.18);
-      --border-subtle: #252b3a;
-      --error: #ff6b6b;
-      --radius-lg: 1.5rem;
-      --radius-xl: 2rem;
-      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.55);
-      --max-width: 1100px;
-      --phi: 1.618;
-      --space: 1.2rem;
-      --transition-fast: 160ms ease-out;
-      --transition-med: 220ms ease;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
-      background: radial-gradient(circle at top left, #161c27 0, #040609 52%, #020308 100%);
-      min-height: 100vh;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; height: auto; display: block; }
-    button { font: inherit; }
-
-    .skip-link {
-      position: absolute;
-      left: 0.75rem;
-      top: -3rem;
-      padding: 0.5rem 1rem;
-      background: #000;
-      color: #fff;
-      border-radius: 999px;
-      z-index: 999;
-      transition: top var(--transition-med);
-    }
-    .skip-link:focus { top: 0.75rem; }
-
-    .page-shell {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 1.4rem 1.4rem 2.8rem;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(14px);
-      background: linear-gradient(to bottom, rgba(4, 6, 9, 0.92), rgba(4, 6, 9, 0.65), transparent);
-    }
-
-    .top-bar {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0.9rem 1.4rem 0.6rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .brand { display: flex; align-items: center; gap: 0.5rem; }
-
-    .brand-text-primary {
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-size: 0.76rem;
-    }
-    .brand-text-secondary {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--muted);
-    }
-
-    nav { display: flex; align-items: center; gap: 0.4rem; }
-
-    .pill-link {
-      border-radius: 999px;
-      padding: 0.35rem 0.9rem;
-      font-size: 0.78rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
-      border: 1px solid transparent;
-      background: transparent;
-      transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
-    }
-    .pill-link:hover,
-    .pill-link:focus-visible {
-      color: var(--text);
-      border-color: var(--border-subtle);
-      background: rgba(10, 15, 22, 0.9);
-      transform: translateY(-1px);
-      outline: none;
-    }
-    .pill-link.primary {
-      border-color: rgba(245, 196, 81, 0.45);
-      background: var(--accent-soft);
-      color: var(--accent);
-    }
-    .pill-link.primary:hover,
-    .pill-link.primary:focus-visible {
-      background: rgba(245, 196, 81, 0.25);
-      box-shadow: 0 0 0 1px rgba(245, 196, 81, 0.4);
-    }
-
-        .pill-link.secondary {
-      background: transparent;
-      border: 1px solid rgba(255, 200, 90, 0.55);
-      color: var(--accent);
-      opacity: 0.9;
-    }
-
-    .pill-link.secondary:hover,
-    .pill-link.secondary:focus-visible {
-      background: rgba(255, 200, 90, 0.12);
-      border-color: var(--accent);
-      outline: none;
-    }
-
-    .pill-link.secondary:active {
-      background: rgba(255, 200, 90, 0.18);
-    }
-
-
-    main { padding-top: 1.2rem; }
-
-    .hero {
-      border-radius: var(--radius-xl);
-      background: radial-gradient(circle at 0 0, rgba(245, 196, 81, 0.16), transparent 60%),
-                  radial-gradient(circle at 100% 100%, rgba(78, 140, 255, 0.16), transparent 60%),
-                  linear-gradient(135deg, rgba(13, 18, 30, 0.96), rgba(7, 9, 16, 0.98));
-      box-shadow: var(--shadow-soft);
-      padding: calc(var(--space) * var(--phi) * 1.1);
-      margin-bottom: calc(var(--space) * var(--phi) * 1.4);
-      transition: background 1.4s ease;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.618fr) minmax(0, 1fr);
-      gap: calc(var(--space) * var(--phi));
-      align-items: center;
-    }
-
-    .hero-kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.55rem;
-      padding: 0.2rem 0.75rem 0.25rem;
-      border-radius: 999px;
-      border: 1px solid rgba(245, 196, 81, 0.4);
-      background: rgba(5, 6, 10, 0.82);
-      font-size: 0.72rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.9rem;
-    }
-    .hero-kicker span { color: var(--accent); }
-
-    .hero-title {
-      font-size: clamp(2.1rem, 3vw + 1rem, 2.8rem);
-      line-height: 1.06;
-      letter-spacing: 0.01em;
-      margin: 0 0 0.7rem;
-    }
-    .hero-title span { color: var(--accent); }
-
-    .hero-text {
-      max-width: 34rem;
-      font-size: 0.98rem;
-      line-height: 1.6;
-      color: var(--muted);
-      margin-bottom: 1.2rem;
-    }
-
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem 1.3rem;
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--muted);
-      margin-bottom: 1.3rem;
-    }
-    .hero-meta span { padding-left: 0.8rem; position: relative; }
-    .hero-meta span::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      width: 0.5rem;
-      border-bottom: 1px solid rgba(169, 179, 197, 0.55);
-      transform: translateY(-0.15rem);
-    }
-
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; }
-    .hero-actions .pill-link { padding-inline: 1.1rem; }
-
-    .hero-portrait-wrap { position: relative; isolation: isolate; }
-
-    .hero-frame {
-      position: relative;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      border: none;
-      background: #05070d; /* fallback */
-      aspect-ratio: 4 / 5;
-      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      padding: 0;
-      transition: background 1.4s ease;
-    }
-
-    .hero-frame-inner {
-      width: 86%;
-      height: 86%;
-      border-radius: calc(var(--radius-lg) * 0.9);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      overflow: hidden;
-      position: relative;
-      background:
-        radial-gradient(circle at 30% 0%, rgba(255, 255, 255, 0.05) 0, transparent 55%),
-        radial-gradient(circle at 100% 100%, rgba(0, 0, 0, 0.7) 0, transparent 65%),
-        #05070d;
-      transition: background 1.4s ease;
-    }
-
-    .hero-frame-photo {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: contrast(1.1) saturate(1.02);
-    }
-
-    .hero-note {
-      position: absolute;
-      right: 0.5rem;
-      bottom: 0.4rem;
-      font-size: 0.7rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      background: rgba(3, 5, 10, 0.9);
-      border-radius: 999px;
-      padding: 0.35rem 0.75rem;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      color: var(--muted);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .hero-note-dot {
-      width: 0.35rem;
-      height: 0.35rem;
-      border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 0 0 0 4px rgba(245, 196, 81, 0.25);
-    }
-
-    .section { margin-bottom: calc(var(--space) * var(--phi) * 1.7); }
-
-    .section-header {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-
-    .section-title {
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-    }
-
-    .section-subtitle {
-      font-size: 0.82rem;
-      color: var(--muted);
-      max-width: 26rem;
-    }
-    .section-subtitle span { color: var(--accent); }
-
-    .grid-thirds {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: calc(var(--space) * 0.9);
-    }
-
-    .photo-card {
-      position: relative;
-      border-radius: calc(var(--radius-lg) * 0.85);
-      overflow: hidden;
-      background: linear-gradient(145deg, rgba(12, 17, 26, 0.96), rgba(6, 8, 14, 0.98));
-      border: 1px solid var(--border-subtle);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.65);
-      display: flex;
-      flex-direction: column;
-      min-height: 0;
-    }
-
-    .photo-thumb-btn {
-      border: none;
-      padding: 0;
-      background: transparent;
-      cursor: pointer;
-      text-align: left;
-      position: relative;
-      isolation: isolate;
-    }
-    .photo-thumb-btn:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 2px;
-    }
-
-    .photo-thumb-btn img {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
-      transition: transform var(--transition-med), filter var(--transition-med);
-    }
-    .photo-card:hover img { transform: scale(1.03); filter: brightness(1.05); }
-
-    .photo-overlay-tag {
-      position: absolute;
-      left: 0.7rem;
-      top: 0.7rem;
-      padding: 0.25rem 0.7rem;
-      border-radius: 999px;
-      font-size: 0.7rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      background: rgba(4, 6, 9, 0.92);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      color: var(--muted);
-    }
-
-    .photo-body {
-      padding: 0.85rem 0.85rem 0.9rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
-    }
-    .photo-title { font-size: 0.92rem; font-weight: 500; }
-    .photo-meta {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--muted);
-    }
-    .photo-short { font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
-
-    .photo-open-hint {
-      font-size: 0.72rem;
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-      margin-top: 0.1rem;
-      color: rgba(169, 179, 197, 0.78);
-    }
-
-    .photo-open-dot {
-      width: 0.32rem;
-      height: 0.32rem;
-      border-radius: 999px;
-      border: 1px solid rgba(245, 196, 81, 0.6);
-    }
-
-    .about-panel {
-      border-radius: var(--radius-lg);
-      background: linear-gradient(135deg, rgba(10, 14, 23, 0.96), rgba(6, 9, 16, 0.98));
-      border: 1px solid var(--border-subtle);
-      padding: 1.1rem 1.1rem 1.2rem;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 1.1rem;
-      align-items: flex-start;
-    }
-
-    .about-body { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
-    .about-body p { margin: 0 0 0.5rem; }
-
-    .about-stat {
-      border-radius: calc(var(--radius-lg) * 0.9);
-      background: radial-gradient(circle at 0 0, rgba(245, 196, 81, 0.18), transparent 60%), #070a12;
-      border: 1px solid rgba(245, 196, 81, 0.4);
-      padding: 0.85rem 0.95rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    .about-stat-main { font-size: 1.05rem; font-weight: 600; color: var(--accent); }
-    .about-stat-foot { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.16em; }
-
-    .contact-label { max-width: 26rem; }
-    .contact-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; }
-
-    .contact-chip {
-      padding: 0.3rem 0.75rem;
-      border-radius: 999px;
-      border: 1px dashed var(--border-subtle);
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--muted);
-    }
-
-    footer {
-      margin-top: 1.6rem;
-      padding-top: 0.8rem;
-      border-top: 1px solid #181d26;
-      font-size: 0.72rem;
-      color: var(--muted);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem 1.4rem;
-      justify-content: space-between;
-      align-items: baseline;
-    }
-    .footer-links { display: flex; flex-wrap: wrap; gap: 0.7rem; }
-    .footer-links a { text-transform: uppercase; letter-spacing: 0.14em; }
-
-    /* IMAGE LIGHTBOX */
-    .lightbox {
-      position: fixed;
-      inset: 0;
-      background: radial-gradient(circle at top, rgba(245, 196, 81, 0.16), transparent 55%),
-                  rgba(3, 5, 10, 0.96);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1.2rem;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity var(--transition-med);
-      z-index: 40;
-    }
-    .lightbox.is-open { opacity: 1; pointer-events: auto; }
-
-    .lightbox-inner {
-      position: relative;
-      width: min(1200px, 100%);
-      max-height: calc(100vh - 2rem);
-      background: linear-gradient(145deg, #05070c, #070b13);
-      border-radius: var(--radius-xl);
-      border: 1px solid rgba(245, 196, 81, 0.38);
-      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.9);
-      display: grid;
-      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1fr);
-      gap: 1rem;
-      padding: 1rem;
-      overflow: hidden;
-    }
-
-    .lightbox-media {
-      border-radius: calc(var(--radius-lg) * 0.9);
-      overflow: hidden;
-      background: #020308;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      max-height: 100%;
-    }
-
-    .lightbox-img {
-      width: 100%;
-      max-height: calc(100vh - 4rem);
-      object-fit: contain;
-    }
-
-    .lightbox-content {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      font-size: 0.86rem;
-      color: var(--muted);
-      max-height: 80vh;
-      overflow: auto;
-      padding-right: 0.3rem;
-    }
-
-    .lightbox-kicker {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--accent);
-    }
-
-    .lightbox-title { font-size: 1.15rem; margin: 0.1rem 0; }
-
-    .lightbox-meta {
-      font-size: 0.74rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: rgba(169, 179, 197, 0.88);
-      margin-bottom: 0.4rem;
-    }
-
-    .lightbox-short { margin: 0 0 0.35rem; }
-    .lightbox-long { margin: 0.1rem 0 0.3rem; font-size: 0.84rem; line-height: 1.6; max-height: 40vh; overflow: auto; }
-
-    .lightbox-toggle {
-      align-self: flex-start;
-      border-radius: 999px;
-      border: 1px solid var(--border-subtle);
-      padding: 0.35rem 0.9rem;
-      background: transparent;
-      color: var(--muted);
-      font-size: 0.76rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
-    }
-
-    .lightbox-toggle:hover,
-    .lightbox-toggle:focus-visible {
-      background: rgba(10, 15, 25, 0.95);
-      border-color: rgba(245, 196, 81, 0.5);
-      color: var(--accent);
-      outline: none;
-      transform: translateY(-1px);
-    }
-
-    .lightbox-close {
-      position: absolute;
-      top: 0.65rem;
-      right: 0.7rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      background: rgba(3, 5, 10, 0.92);
-      color: var(--muted);
-      padding: 0.15rem 0.6rem;
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), border-color var(--transition-fast);
-      z-index: 1;
-    }
-
-    .lightbox-close:hover,
-    .lightbox-close:focus-visible {
-      background: rgba(245, 196, 81, 0.16);
-      color: var(--accent);
-      border-color: rgba(245, 196, 81, 0.6);
-      outline: none;
-      transform: translateY(-1px);
-    }
-
-    .lightbox-keyhint {
-      font-size: 0.7rem;
-      color: rgba(169, 179, 197, 0.8);
-      margin-top: 0.35rem;
-    }
-
-    .lightbox-nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      background: rgba(3, 5, 10, 0.85);
-      color: var(--muted);
-      width: 2rem;
-      height: 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-      cursor: pointer;
-      z-index: 2;
-      transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
-    }
-
-    .lightbox-prev { left: 0.5rem; }
-    .lightbox-next { right: 0.5rem; }
-
-    .lightbox-nav:hover,
-    .lightbox-nav:focus-visible {
-      background: rgba(245, 196, 81, 0.18);
-      border-color: rgba(245, 196, 81, 0.7);
-      color: var(--accent);
-      outline: none;
-      transform: translateY(-50%) translateY(-1px);
-    }
-
-    .visually-hidden {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
-    }
-
-    /* Brand logo replacement */
-    .brand-mark {
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--border-subtle);
-      background: none;
-      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.02);
-    }
-    .brand-logo { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-    /* ==========================
-       Discovering Analogue: My First 36 (cards)
-       ========================== */
-    .story-card { padding: 0.95rem 0.95rem 1rem; gap: 0.55rem; }
-    .story-kicker {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--muted);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .story-dot {
-      width: 0.38rem;
-      height: 0.38rem;
-      border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 0 0 0 5px rgba(245, 196, 81, 0.14);
-      flex: 0 0 auto;
-    }
-    .story-title { margin: 0; font-size: 1.05rem; font-weight: 600; letter-spacing: 0.01em; }
-    .story-text { margin: 0; font-size: 0.86rem; color: var(--muted); line-height: 1.6; }
-
-    .story-actions {
-      margin-top: 0.35rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem;
-      align-items: center;
-    }
-
-    .story-btn {
-      border-radius: 999px;
-      border: 1px solid rgba(245, 196, 81, 0.45);
-      background: rgba(245, 196, 81, 0.14);
-      color: var(--accent);
-      padding: 0.35rem 0.85rem;
-      font-size: 0.74rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      cursor: pointer;
-      transition: background var(--transition-fast), transform var(--transition-fast), border-color var(--transition-fast);
-    }
-    .story-btn:hover,
-    .story-btn:focus-visible {
-      background: rgba(245, 196, 81, 0.22);
-      border-color: rgba(245, 196, 81, 0.7);
-      outline: none;
-      transform: translateY(-1px);
-    }
-
-    .story-btn.secondary {
-      border-color: rgba(255,255,255,0.14);
-      background: rgba(10, 15, 22, 0.55);
-      color: var(--muted);
-    }
-    .story-btn.secondary:hover,
-    .story-btn.secondary:focus-visible {
-      color: var(--text);
-      border-color: rgba(255,255,255,0.22);
-    }
-
-    .photo-card.is-disabled { opacity: 0.6; filter: saturate(0.8); }
-    .photo-card.is-disabled .story-btn { cursor: not-allowed; opacity: 0.65; }
-
-    /* ==========================
-       STORY LIGHTBOX (chapters)
-       ========================== */
-    .storybox {
-      position: fixed;
-      inset: 0;
-      background: radial-gradient(circle at top, rgba(245, 196, 81, 0.16), transparent 55%),
-                  rgba(3, 5, 10, 0.96);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1.2rem;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity var(--transition-med);
-      z-index: 50;
-    }
-    .storybox.is-open { opacity: 1; pointer-events: auto; }
-
-    .storybox-inner {
-      position: relative;
-      width: min(750px, 100%);
-      max-height: calc(100vh - 2.2rem);
-      background: linear-gradient(145deg, #05070c, #070b13);
-      border-radius: var(--radius-xl);
-      border: 1px solid rgba(245, 196, 81, 0.30);
-      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.9);
-      overflow: hidden;
-      padding: 1rem;
-    }
-
-    .storybox-content {
-      max-height: calc(100vh - 4.6rem);
-      overflow: auto;
-      padding-right: 0.35rem;
-    }
-
-    .storybox-kicker {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--accent);
-      margin: 0 0 0.35rem;
-    }
-
-    .storybox-title { font-size: 1.15rem; margin: 0.1rem 0; }
-
-    .storybox-meta {
-      font-size: 0.74rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: rgba(169, 179, 197, 0.88);
-      margin: 0 0 0.9rem;
-    }
-
-    .storybox-chat { display: flex; flex-direction: column; gap: 0.55rem; }
-    .storybubble-row { display: flex; }
-    .storybubble-row.sender { justify-content: flex-end; }
-    .storybubble-row.other { justify-content: flex-start; }
-
-    .storybubble {
-      max-width: min(34rem, 92%);
-      border-radius: 1.25rem;
-      padding: 0.7rem 0.8rem;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.06);
-      color: var(--text);
-    }
-    
-    .storybox-content{
-      padding-right: 0.35rem;
-      padding-left: 0.15rem;
-    }
-
-    .storybubble.sender {
-      border-color: rgba(245,196,81,0.28);
-      background: rgba(245,196,81,0.10);
-      border-bottom-right-radius: 0.7rem;
-    }
-
-    .storybubble.other { border-bottom-left-radius: 0.7rem; }
-
-    .storywho {
-      display: block;
-      font-size: 0.74rem;
-      color: rgba(169,179,197,0.85);
-      margin-bottom: 0.35rem;
-    }
-
-    .storywho strong { font-weight: 800; color: rgba(255,255,255,0.95); }
-
-    .storybox-actions {
-      display: flex;
-      justify-content: space-between;
-      gap: 0.7rem;
-      flex-wrap: wrap;
-      margin-top: 1rem;
-    }
-
-    .storybox-toggle {
-      align-self: flex-start;
-      border-radius: 999px;
-      border: 1px solid var(--border-subtle);
-      padding: 0.35rem 0.9rem;
-      background: transparent;
-      color: var(--muted);
-      font-size: 0.76rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
-    }
-
-    .storybox-toggle:hover,
-    .storybox-toggle:focus-visible {
-      background: rgba(10, 15, 25, 0.95);
-      border-color: rgba(245, 196, 81, 0.5);
-      color: var(--accent);
-      outline: none;
-      transform: translateY(-1px);
-    }
-
-    .storybox-close {
-      position: absolute;
-      top: 0.65rem;
-      right: 0.7rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      background: rgba(3, 5, 10, 0.92);
-      color: var(--muted);
-      padding: 0.15rem 0.6rem;
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      cursor: pointer;
-      z-index: 2;
-    }
-
-    .storybox-close:hover,
-    .storybox-close:focus-visible {
-      background: rgba(245, 196, 81, 0.16);
-      color: var(--accent);
-      border-color: rgba(245, 196, 81, 0.6);
-      outline: none;
-      transform: translateY(-1px);
-    }
-
-    .storybox-nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      background: rgba(3, 5, 10, 0.85);
-      color: var(--muted);
-      width: 2rem;
-      height: 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-      cursor: pointer;
-      z-index: 2;
-      transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
-    }
-
-    /* Push storybox nav buttons just outside the modal 
-    .storybox-prev { left: -4rem; }
-    .storybox-next { right: -4rem; }*/
-
-    /* Make sure they stay visible even if content overflows */
-    .storybox-inner { overflow: visible; }
-
-
-    .storybox-nav:hover,
-    .storybox-nav:focus-visible {
-      background: rgba(245, 196, 81, 0.18);
-      border-color: rgba(245, 196, 81, 0.7);
-      color: var(--accent);
-      outline: none;
-      transform: translateY(-50%) translateY(-1px);
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 960px) {
-      .hero-grid { grid-template-columns: minmax(0, 1fr); }
-      .hero-portrait-wrap { order: -1; }
-      .hero { padding: 1.2rem; }
-      .section-header { flex-direction: column; align-items: flex-start; }
-      .about-panel { grid-template-columns: minmax(0, 1fr); }
-      .lightbox-inner { grid-template-columns: minmax(0, 1fr); max-height: calc(100vh - 2.2rem); }
-      .lightbox-media { max-height: 55vh; }
-      .lightbox-content { max-height: 40vh; }
-    }
-
-    @media (max-width: 768px) {
-      .page-shell { padding-inline: 1rem; }
-      .top-bar { padding-inline: 1rem; }
-      .grid-thirds { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .contact-panel { flex-direction: column; align-items: flex-start; }
-    }
-
-    @media (max-width: 540px) {
-      .grid-thirds { grid-template-columns: minmax(0, 1fr); }
-      .hero-meta { flex-direction: column; }
-      .top-bar { flex-direction: column; align-items: flex-start; }
-      .top-bar nav { width: 100%; flex-wrap: wrap; justify-content: flex-start; gap: 0.3rem; margin-top: 0.4rem; }
-      .pill-link { padding: 0.3rem 0.7rem; font-size: 0.72rem; }
-    }
-
-    /* Hero slide animation */
-    @keyframes hero-swoosh {
-      from { opacity: 0; transform: translateX(24px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-    .hero-frame.swoosh { animation: hero-swoosh 0.45s ease-out; }
-
-        /* ===== Scrollbar theming (global) ===== */
-
-        /* Firefox */
-        * {
-          scrollbar-width: thin;
-          scrollbar-color: rgba(245,196,81,0.75) rgba(10,15,25,0.35);
-        }
-
-        /* Chromium / Safari */
-        ::-webkit-scrollbar {
-          width: 12px;
-          height: 12px;
-        }
-
-        ::-webkit-scrollbar-track {
-          background: rgba(10,15,25,0.35);
-          border-radius: 999px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-          background: rgba(245,196,81,0.70);
-          border-radius: 999px;
-          border: 3px solid rgba(10,15,25,0.35); /* gives it a “pill” inset look */
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-          background: rgba(245,196,81,0.88);
-        }
-
-
-        /* =========================
-           OUTSIDE NAV BUTTONS
-           ========================= */
-
-        .storybox-inner,
-        .lightbox-inner {
-          overflow: visible;
-        }
-
-        /* Storybox nav */
-        .storybox-prev {
-          left: -3rem;
-        }
-        .storybox-next {
-          right: -3rem;
-        }
-
-        /* Image lightbox nav */
-        .lightbox-prev {
-          left: -3rem;
-        }
-        .lightbox-next {
-          right: -3rem;
-        }
-
-        /* Mobile safety */
-        @media (max-width: 640px) {
-          .storybox-prev,
-          .lightbox-prev {
-            left: 0.6rem;
-          }
-
-          .storybox-next,
-          .lightbox-next {
-            right: 0.6rem;
-          }
-
-          .storybox-inner,
-          .lightbox-inner {
-            overflow: hidden;
-          }
-        }
-
-        /* Chat-style date separator (storybox only) */
-        .story-date {
-          align-self: center;
-          margin: 0.9rem 0 0.7rem;
-          padding: 0.28rem 0.8rem;
-
-          font-size: 0.68rem;
-          letter-spacing: 0.16em;
-          text-transform: uppercase;
-
-          color: rgba(169, 179, 197, 0.75);
-          background: rgba(255, 255, 255, 0.04);
-
-          border-radius: 999px;
-          border: 1px solid rgba(255, 255, 255, 0.08);
-
-          backdrop-filter: blur(6px);
-          pointer-events: none;
-        }
-
-            /* Story chapter thumbnails */
-    .story-thumb {
-      border-radius: 1rem;
-      overflow: hidden;
-      margin-bottom: 0.65rem;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: #05070d;
-    }
-
-    .story-thumb img {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
-      display: block;
-      filter: contrast(1.05) saturate(0.95);
-    }
-
-    /* Dim placeholders for coming-soon chapters */
-    .photo-card.is-disabled .story-thumb img {
-      filter: grayscale(0.6) brightness(0.7);
-    }
-
-    .series-intro {
-  box-shadow:
-    0 0 0 1px color-mix(in srgb, var(--accent) 25%, transparent),
-    0 0 20px color-mix(in srgb, var(--accent) 20%, transparent);
-}
-
-
-.section-epilogue {
-  padding: 3rem 0 2rem;
-}
-
-.epilogue-art {
-  display: flex;
-  justify-content: center;
-  gap: 0.6rem;
-  opacity: 0.55;
-}
-
-.epilogue-art span {
-  width: 6px;
-  height: 6px;
-  border-radius: 999px;
-  background: var(--accent);
-  box-shadow: 0 0 10px rgba(245,196,81,0.35);
-}
-
-
-  </style>
+  .plate__body h3{position:relative;font-family:var(--serif);font-weight:400;
+    font-size:clamp(1.8rem,1.4rem + 1.5vw,2.5rem);line-height:1.05;letter-spacing:-.01em;margin:0 0 1rem;padding-top:1.1rem}
+  .plate__body h3::before{content:"";position:absolute;top:0;left:0;width:2.25rem;height:2px;background:var(--accent);opacity:.75}
+  .plate__body p{margin:0;color:var(--paper-soft)}
+
+  /* Lightbox */
+  dialog.lb{border:0;padding:0;margin:0;max-width:100vw;max-height:100dvh;width:100vw;height:100dvh;
+    background:transparent;overflow:hidden;color:var(--paper)}
+  dialog.lb::backdrop{background:rgba(6,6,8,.94)}
+  .lb__fig{margin:0;width:100%;height:100%;display:grid;place-items:center;padding:clamp(1rem,4vw,3rem)}
+  .lb__fig img{max-width:min(96vw,1600px);max-height:84dvh;width:auto;height:auto;object-fit:contain;
+    border-radius:3px;box-shadow:0 24px 90px rgba(0,0,0,.7);cursor:zoom-in;transition:transform .25s ease;will-change:transform}
+  @media (prefers-reduced-motion:reduce){.lb__fig img{transition:none}}
+  .lb__cap{position:fixed;bottom:1.1rem;left:0;right:0;text-align:center;
+    font-family:var(--mono);font-size:.76rem;letter-spacing:.14em;color:var(--paper-dim)}
+  .lb__close{position:fixed;top:.8rem;right:1rem;z-index:2;background:transparent;border:0;color:var(--paper);
+    font-size:1.6rem;line-height:1;cursor:pointer;width:2.8rem;height:2.8rem;border-radius:50%}
+  .lb__close:hover{background:rgba(236,232,225,.12)}
+  .lb__spin{position:fixed;top:50%;left:50%;width:34px;height:34px;margin:-17px 0 0 -17px;display:none;
+    border:2px solid rgba(236,232,225,.25);border-top-color:var(--paper);border-radius:50%}
+  dialog.lb.loading .lb__spin{display:block;animation:spin .8s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @media (prefers-reduced-motion:no-preference){
+    dialog.lb[open],dialog.modal[open]{animation:lbin .22s ease both}
+    dialog.lb[open]::backdrop,dialog.modal[open]::backdrop{animation:bgin .22s ease both}
+    @keyframes lbin{from{opacity:0;transform:scale(.985)}to{opacity:1;transform:none}}
+    @keyframes bgin{from{opacity:0}to{opacity:1}}
+  }
+
+  /* ---------- Modals ---------- */
+  dialog.modal{border:0;padding:0;margin:0;max-width:100vw;max-height:100dvh;width:100vw;height:100dvh;background:transparent;color:var(--paper)}
+  dialog.modal::backdrop{background:rgba(6,6,8,.9);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+  .modal__close{position:fixed;top:.8rem;right:1rem;z-index:2;background:transparent;border:0;color:var(--paper);font-size:1.6rem;line-height:1;cursor:pointer;width:2.8rem;height:2.8rem;border-radius:50%}
+  .modal__close:hover{background:rgba(236,232,225,.12)}
+  .modal__wrap{width:100%;height:100%;display:grid;place-items:center;padding:clamp(1.2rem,4vw,2.5rem)}
+  .modal__panel{max-width:60ch;max-height:86dvh;overflow:auto;background:var(--ink-raised);border:1px solid var(--hair);border-radius:var(--radius);padding:clamp(1.7rem,4vw,2.9rem);box-shadow:0 30px 90px rgba(0,0,0,.6)}
+  .modal__title{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(2rem,1.6rem + 1.6vw,2.7rem);line-height:1;margin:0 0 1.4rem}
+  .modal__body p{margin:0 0 1.1rem;color:var(--paper-soft)}
+  .modal__note{font-size:.88rem;color:var(--paper-dim)!important}
+  .modal__h{font-family:var(--mono);font-size:.74rem;font-weight:400;letter-spacing:.02em;color:var(--paper);margin:1.4rem 0 .45rem}
+  .terms{margin:.2rem 0 1.4rem;padding-left:1.2rem}
+  .terms li{margin:0 0 .5rem;color:var(--paper-mute);font-size:.9rem;line-height:1.5}
+  .agree{display:flex;gap:.6rem;align-items:flex-start;font-size:.92rem;color:var(--paper-soft);cursor:pointer;margin:0 0 1.15rem}
+  .agree input{margin-top:.25rem;accent-color:#9fb0bd;flex:0 0 auto}
+  .btn:disabled{opacity:.38;cursor:not-allowed}
+  .c-email{margin:.4rem 0 0;font-family:var(--mono);font-size:1.02rem}
+  .c-email a{color:var(--paper);text-decoration:none;border-bottom:1px solid var(--hair-strong)}
+  .c-email a:hover{border-color:var(--paper)}
+  .link-btn{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;border-bottom:1px solid var(--hair);padding-bottom:1px}
+  .link-btn:hover{color:var(--paper);border-color:var(--paper)}
+
+  /* Floating contact button */
+  .fab{position:fixed;right:clamp(1rem,3vw,1.75rem);bottom:clamp(1rem,3vw,1.75rem);z-index:45;
+    box-shadow:0 10px 30px rgba(0,0,0,.45);opacity:0;transform:translateY(10px);pointer-events:none;
+    transition:opacity .25s var(--ease),transform .25s var(--ease),background .2s}
+  .fab.is-visible{opacity:1;transform:none;pointer-events:auto}
+  .fab svg{width:1rem;height:1rem;flex:0 0 auto}
+
+  /* Closing CTA + footer */
+  .cta{text-align:left;padding-block:clamp(3.5rem,9vh,5.5rem);border-top:1px solid var(--hair)}
+  .cta h2{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(2rem,1.6rem + 2vw,3rem);line-height:1.05;margin:0 0 1rem;max-width:22ch}
+  .cta p{color:var(--paper-soft);max-width:54ch;margin:0 0 1.75rem}
+  footer{padding-block:0 clamp(2.5rem,6vh,4rem)}
+  .foot-rule{height:1px;background:var(--hair);border:0;margin:0 0 1.75rem}
+  .colophon{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;justify-content:space-between;align-items:baseline;margin:0;
+    font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;color:var(--paper-dim)}
+  .colophon a{text-decoration:none;border-bottom:1px solid var(--hair);padding-bottom:1px}
+  .colophon a:hover{color:var(--paper);border-color:var(--paper)}
+  .colophon span{display:inline-flex;gap:1.25rem;flex-wrap:wrap}
+
+  @media (prefers-reduced-motion:no-preference){
+    .js .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s var(--ease)}
+    .js .reveal.in{opacity:1;transform:none}
+  }
+  @media (max-width:760px){
+    .plate,.plate--flip{flex-direction:column;align-items:stretch}
+    .plate__body{max-width:none}
+    .nav li:last-child{margin-left:0}
+  }
+</style>
 </head>
-
 <body>
-  <a href="#main" class="skip-link">Skip to main content</a>
+<a class="skip" href="#main">Skip to the photos</a>
 
-  <header>
-    <div class="top-bar" aria-label="Primary navigation">
-      <div class="brand">
-        <div class="brand-mark" aria-hidden="true">
-          <img src="logo.png" alt="" class="brand-logo">
-        </div>
-        <div>
-          <div class="brand-text-primary">Lumasphere</div>
-          <div class="brand-text-secondary">by alex</div>
-        </div>
-      </div>
-      <nav>
-        <a href="#portfolio" class="pill-link primary">Selected works</a>
-        <a href="#analogue" class="pill-link">36 Chances</a>
-        <a href="#about" class="pill-link">Approach</a>
-        <a href="#guides" class="pill-link">Short Guides</a>
-      </nav>
-    </div>
-  </header>
+<nav class="nav" aria-label="Sections">
+  <ul class="wrap">
+    <li class="nav__logo"><a href="#top" aria-label="Back to top"><img src="images/logo.png" alt="" width="32" height="32"></a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#chiaroscuro">Chiaroscuro</a></li>
+    <li><a href="#botanical">Botanical</a></li>
+    <li><a href="#landscapes">Landscapes</a></li>
+    <li><a href="#liminal">Liminal</a></li>
+    <li><a href="#numismatics">Numismatics</a></li>
+    <li><button type="button" class="nav__btn" onclick="openContact()">Contact →</button></li>
+  </ul>
+</nav>
 
-  <main id="main" class="page-shell">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-grid">
-        <div>
-          <div class="hero-kicker">A <span>deliberate</span> photographic practice</div>
-          <h1 id="hero-title" class="hero-title">
-            <span>Photography</span> shaped by intent, light, and restraint.
-          </h1>
-          <p class="hero-text">
-            I work across digital and film, focusing on light, contrast, and controlled composition. Images are made slowly, reviewed over time, and shown only when they continue to justify themselves.
-          </p>
-          <p class="hero-text">
-            This page is a single, ongoing record of the practice. It is arranged loosely over time, with newer work and newer additions appearing further down.
-          </p>
-          <div class="hero-meta" aria-label="Portfolio highlights">
-            <span>DIGITAL & ANALOGUE</span>
-            <span>LIGHT & RESTRAINT</span>
-            <span>DELIBERATE PRACTICE</span>
-          </div>
-          <div class="hero-actions">
-            <a href="#portfolio" class="pill-link primary">Early works</a>
-            <a href="#analogue" class="pill-link secondary">36 Chances</a>
-            <a href="#about" class="pill-link secondary">Approach</a>
-            <a href="#guides" class="pill-link secondary">Short Guides</a>
-          </div>
-        </div>
+<header class="masthead wrap" id="top">
+  <p class="eyebrow">lumasphere.art</p>
+  <h1 class="wordmark">Hi, I'm Alex.</h1>
+  <p class="tagline">This is a selection of photos I've taken as a hobby, from my very first shots before GCSEs through to my A level portfolio and beyond. The close ups were set up at home with a flash and whatever I could rig up. The landscapes are a mix of early starts I planned and walks where I just happened to have the camera with me.</p>
+  <div class="hero-actions">
+    <a class="btn" href="#chiaroscuro">View photos</a>
+    <button type="button" class="btn btn--ghost" onclick="openContact()">Get in touch</button>
+  </div>
+</header>
 
-        <div class="hero-portrait-wrap">
-          <button class="hero-frame" type="button" aria-label="Open featured photograph">
-            <div class="hero-frame-inner">
-              <img src="images/rose-memory-still-life.jpg" alt="Featured photograph" class="hero-frame-photo" />
-            </div>
-            <!--div class="hero-note">
-              <span class="hero-note-dot"></span>
-              <span>From the rediscovery series</span>
-          </div-->
-          </button>
-        </div>
-      </div>
-    </section>
+<main id="main">
 
-    <section id="portfolio" class="section" aria-labelledby="portfolio-title">
-      <div class="section-header">
-        <h2 id="portfolio-title" class="section-title">Early work</h2>
-        <p class="section-subtitle">
-          Three selected pieces chosen for tone, <span>composition,</span> and staying power. Open any image full screen for a longer note on the work.
-        </p>
-      </div>
-
-      <div class="grid-thirds" aria-label="Portfolio grid">
-        <!-- ROSE — IMAGE 1 -->
-        <article class="photo-card">
-          <button class="photo-thumb-btn" type="button"
-                  data-full="images/rose-memory-still-life.jpg"
-                  data-title="Rose That Stayed"
-                  data-meta="Still life · Personal"
-                  data-short="A single purple rose from a bouquet that faded after my grandfather died, held in the softest light."
-                  data-long="This rose came from flowers my mum was given after her dad passed away. The bouquet didn’t last long, but this frame did. I set it against a blackout background and kept the light tight, so all the attention sits in the folds of the petals. It was one of the first times picking the camera back up felt like a way of keeping something small and quiet from disappearing completely.">
-            <img
-              src="images/rose-memory-still-life.jpg"
-              alt="Close-up of a deep purple rose against a pure black background, lit softly from one side so the petals look velvety and three-dimensional."
-              loading="lazy"
-            />
-            <!-- span class="photo-overlay-tag">Rediscovery</span -->
-          </button>
-          <div class="photo-body">
-            <h3 class="photo-title">Rose That Stayed</h3>
-            <p class="photo-meta">Still life · Personal</p>
-            <p class="photo-short">A single purple rose from a sympathy bouquet, photographed long after the flowers were gone.</p>
-            <p class="photo-open-hint"><span class="photo-open-dot"></span>Click to view full screen &amp; read more</p>
-          </div>
-        </article>
-
-        <!-- BROKEN SCREEN — IMAGE 2 -->
-        <article class="photo-card">
-          <button class="photo-thumb-btn" type="button"
-                  data-full="images/broken-phone-screen-experiment.jpg"
-                  data-title="Broken Screen Study"
-                  data-meta="Experiment · College"
-                  data-short="Light sliding across a shattered phone screen, shot with the lens reversed during an A-level warm-up task."
-                  data-long="In our first A-level photography session we were told to get comfortable with the cameras. I was already there, so I popped the lens off, flipped it round, and started freelensing. A classmate’s broken phone ended up propped in the window, catching this strange light. The shallow focus pulls you into the cracks and reflections rather than the object itself. It’s a small reminder that most of my favourite images happen when I’m quietly ignoring the brief and just playing with the kit.">
-            <img
-              src="images/broken-phone-screen-experiment.jpg"
-              alt="Abstract close-up of a cracked phone screen near a window, with soft blur and light streaks running vertically through the frame."
-              loading="lazy"
-            />
-            <!-- span class="photo-overlay-tag">Rediscovery</span -->
-          </button>
-          <div class="photo-body">
-            <h3 class="photo-title">Broken Screen Study</h3>
-            <p class="photo-meta">Experiment · College</p>
-            <p class="photo-short">Shattered glass, window light, and a reversed lens turning a broken phone into something strangely calm.</p>
-            <p class="photo-open-hint"><span class="photo-open-dot"></span>Click to view full screen &amp; read more</p>
-          </div>
-        </article>
-
-        <!-- MORNING LANDSCAPE — IMAGE 3 -->
-        <article class="photo-card">
-          <button class="photo-thumb-btn" type="button"
-                  data-full="images/welsh-valley-sunrise-landscape.jpg"
-                  data-title="Five AM Valley"
-                  data-meta="Landscape · Early morning"
-                  data-short="A Welsh hillside in silhouette with bands of orange and blue sky, shot around 5am after a lot of trial and error."
-                  data-long="This was taken stupidly early on my old DSLR, after a run of frames that were either too dark, too noisy, or just badly timed. I kept nudging the shutter speed and angle until the ridge sat cleanly on the upper third and the valley mist started to show. The sky shifted from deep blue into orange while I was figuring it out. It’s one of the first images that reminded me how much I enjoy being outside with a tripod when most people are still asleep.">
-            <img
-              src="images/welsh-valley-sunrise-landscape.jpg"
-              alt="Wide view of a Welsh hillside in dark silhouette on the right, with misty valleys on the left and a gradient sunrise sky from deep blue to warm orange."
-              loading="lazy"
-            />
-            <!-- span class="photo-overlay-tag">Rediscovery</span -->
-          </button>
-          <div class="photo-body">
-            <h3 class="photo-title">Five AM Valley</h3>
-            <p class="photo-meta">Landscape · Early morning</p>
-            <p class="photo-short">A 5am hillside silhouette with valley mist and a slow, layered sunrise sky.</p>
-            <p class="photo-open-hint"><span class="photo-open-dot"></span>Click to view full screen &amp; read more</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!--Section two on 35mm-->
-
-    <section id="analogue" class="section" aria-labelledby="analogue-title">
-      <div class="section-header">
-        <h2 id="analogue-title" class="section-title">Discovering Analogue: Thirty-Six Chances</h2>
-        <p class="section-subtitle">
-          A short process-led series documenting my first roll of 35mm film, presented as an internal chat transcript of optimism, second-guessing, and <span>lessons learned</span> along the way.
-        </p>
-      </div>
-
-      <div class="grid-thirds" aria-label="Discovering Analogue grid">
-
-        <!-- 1) Intro (static) -->
-        <article class="photo-card story-card series-intro" aria-label="Introduction">
-          <div class="story-kicker"><span class="story-dot"></span>Series intro</div>
-          <h3 class="story-title">Thirty-Six Chances</h3>
-          <p class="story-text">
-            I bought a Canon AE-1 Program and decided to document the first roll properly — the costs, the optimism, and the inevitable mistakes.
-<br><br> Film doesn’t let you spray and fix things later. Every frame costs money, time, and trust. That changes how you think and how you plan.
-<br><br>Thirty-Six Chances follows that process from start to finish across my first full roll of film — mistakes, problems, and the occasional success — while learning 35mm film photography the slow way.
-<br>
-          </p>
-          <div class="story-actions">
-            <span class="contact-chip">Personal</span>
-            <span class="contact-chip">35mm Film</span>
-            <span class="contact-chip">Process-led</span>
-            <span class="contact-chip">Canon AE-1</span>
-          </div>
-        </article>
-
-        <!-- 2) Chapter One -->
-        <article class="photo-card story-card" aria-label="Chapter One: Background">
-          <div class="story-kicker"><span class="story-dot"></span>Chapter One</div>
-          <div class="story-thumb">
-            <img src="images/ae1.jpg" alt="Canon AE-1 Program film camera, close-up photo of the AE-1 badge">
-          </div>
-          
-          <h3 class="story-title">Background</h3>
-          <p class="story-text">
-            The purchase. The missing grip. The battery situation. The slow realisation that “free shipping” is a lie.
-          </p>
-          <div class="story-actions">
-            <button class="story-btn" type="button" data-story="background">Read chapter</button>
-            <!-- <button class="story-btn secondary" type="button" data-story="plan">Next →</button -->
-          </div>
-        </article>
-
-        <!-- 3) Chapter Two -->
-        <article class="photo-card story-card" aria-label="Chapter Two: The Plan">
-          <div class="story-kicker"><span class="story-dot"></span>Chapter Two</div>
-          <div class="story-thumb">
-            <img src="images/cam.jpg" alt="Canon AE-1 Program — placeholder image">
-          </div>          
-          <h3 class="story-title">The Plan</h3>
-          <p class="story-text">
-            Film is expensive. Waiting is worse. If each frame costs money, the only sane option is intention.
-          </p>
-          <div class="story-actions">
-            <button class="story-btn" type="button" data-story="plan">Read chapter</button>
-            <!-- button class="story-btn secondary" type="button" data-story="background">← Prev</button -->
-          </div>
-        </article>
-
-        <!-- 4–6 Coming soon 
-        <article class="photo-card story-card is-disabled" aria-label="Coming soon">
-          <div class="story-kicker"><span class="story-dot"></span>Chapter Three</div>
-          <div class="story-thumb">
-            <img src="images/ae1.jpg" alt="Canon AE-1 Program — placeholder image">
-          </div>          
-            <h3 class="story-title">Preparations</h3>
-            <p class="story-text">Coming soon — batteries in, strap + grip fitted, first test… and the AE-1 coughs to life.</p>
-
-          <div class="story-actions">
-            <button class="story-btn" type="button" disabled>Coming soon</button>
-          </div>
-        </article>
-
-        <article class="photo-card story-card is-disabled" aria-label="Coming soon">
-            <div class="story-kicker"><span class="story-dot"></span>Chapter Four</div>
-            <div class="story-thumb">
-              <img src="images/ae1.jpg" alt="Canon AE-1 Program — placeholder image">
-            </div>            
-            <h3 class="story-title">Shooting</h3>
-            <p class="story-text">Coming soon — multiple shoots, composition + exposure notes, and finally posting the film off. Then waiting.</p>
-          <div class="story-actions">
-            <button class="story-btn" type="button" disabled>Coming soon</button>
-          </div>
-        </article>
-
-        <article class="photo-card story-card is-disabled" aria-label="Coming soon">
-            <div class="story-kicker"><span class="story-dot"></span>Chapter Five</div>
-            <div class="story-thumb">
-              <img src="images/ae1.jpg" alt="Canon AE-1 Program — placeholder image">
-            </div>            
-            <h3 class="story-title">Results &amp; Reflections</h3>
-            <p class="story-text">Coming soon — scans one-by-one, honest verdicts, and Common Sense being annoyingly right.</p>
-          <div class="story-actions">
-            <button class="story-btn" type="button" disabled>Coming soon</button>
-          </div>
-        </article>
-
-        -->
-
-      </div>
-    </section>
-
-    <section id="about" class="section" aria-labelledby="about-title">
-      <div class="section-header">
-        <h2 id="about-title" class="section-title">Approach</h2>
-        <p class="section-subtitle">A non-commercial photography practice centred on <span>intent,</span> constraint, and review.</p>
-      </div>
-
-      <div class="about-panel">
-        <div class="about-body">
-          <p>
-            Photography here is a structured personal practice. I use it to work slowly, revisit ideas, and refine judgement without external pressure.
-          </p>
-          <p>
-            My work usually focuses on objects, environments, and details rather than people. Familiar locations often matter more than new ones, because returning to them over time tends to produce better results.
-          </p>
-          <p>
-            Most work begins with intent before the camera is involved, whether as a mental outline, notes, or a rough plan. I do not shoot constantly and sessions are infrequent but focused, and images may sit for months before I review them properly.
-          </p>
-          <p>
-            This is not commercial work and it is not produced for maximum engagement. The site exists to document my thought process, retain reference points, and share selected outcomes.
-          </p>
-        </div>
-
-      
-        <aside class="about-stat" aria-label="Working kit">
-          <div class="about-stat-main">Working kit</div>
-          <div class="about-stat-foot">Current equipment & origins</div>
-        
-          <p>
-            Equipment is listed for context, not as a statement of specification or status.
-            Items were acquired gradually and are used based on familiarity and constraint rather than specification.
-          </p>
-        
-          <ul class="kit-list">
-            <li>
-              <strong>Canon EOS 700D</strong> (2013 model)<br>
-              APS-C, 18MP · ~28,000 images captured · Primary digital body
-            </li>
-            <li>
-              <strong>Sigma DG 70–300mm f/4–5.6</strong><br>
-              Telephoto zoom · Used selectively for reach
-            </li>
-            <li>
-              <strong>Canon EF-S 18–55mm f/3.5–5.6</strong><br>
-              Standard zoom · Baseline reference lens
-            </li>
-            <li>
-              <strong>Canon EF 50mm f/1.8</strong><br>
-              Prime · Controlled compositions and low light
-            </li>
-            <br>
-            <li>
-              <strong>Canon AE-1 Program</strong> (1981 model)<br>
-              35 mm film SLR · Deliberate, slower-paced work
-            </li>
-            <li>
-              <strong>Canon FD 50mm f/1.8</strong><br>
-              Standard prime for film work
-            </li>
-            <li>
-              <strong>Preferred film stocks</strong><br>
-              Kodak Gold 200, Fuji Velvia 100, and Ilford HP5+ 400
-            </li>
-          </ul>
-        
-          <p>
-            <!--strong>How it started</strong><br>
-            Early work used whatever cameras were available at the time.
-          </p>
-        
-          <ul class="kit-list">
-            <li>
-              <strong>Samsung AF Slim Zoom</strong> (1993 model)<br>
-              Point and shoot · First experience with film
-            </li>
-            <li>
-              <strong>Nikon Coolpix L810</strong> (2012 model)<br>
-              Bridge compact · Introduced composition and reach constraints
-            </li>
-            <li>
-              <strong>GE A1200</strong> (2011 model)<br>
-              Early digital camera (family-owned)
-            </li>
-          </ul -->
-        </aside>
-        
-      </div>
-    </section>
-
-    <section id="guides" class="section" aria-labelledby="guides-title">
-      <div class="section-header">
-        <h2 id="guides-title" class="section-title">Short Guides</h2>
-        <p class="section-subtitle">
-          From time to time, I publish short guides based on formal reports and <span>referenced</span> information.
-        </p>
-      </div>
-    
-      <div class="grid-thirds" aria-label="Short guides grid">
-    
-        <!-- Guide 1 -->
-        <article class="photo-card story-card is-disabled" aria-label="Exposure Basics guide coming soon">
-          <div class="story-kicker"><span class="story-dot"></span>Coming Soon</div>
-          <h3 class="story-title">Fundamentals of Exposure</h3>
-          <p class="story-text">
-            ISO, aperture, and shutter speed - what each controls, how they interact, and why changing one always introduces a trade-off elsewhere.
-          </p>
-          <p class="story-text">
-            Reference-based, with practical examples from digital and 35mm film.
-          </p>
-          <div class="story-actions">
-            <button class="story-btn" type="button" disabled aria-disabled="true">Coming soon</button>
-          </div>
-        </article>
-    
-        <!-- Guide 2 
-        <article class="photo-card story-card is-disabled" aria-label="Title">
-          <div class="story-kicker"><span class="story-dot"></span>Coming soon</div>
-          <h3 class="story-title">Title</h3>
-          <p class="story-text">
-            The Hook and description
-          </p>
-          <div class="story-actions">
-            <button class="story-btn" type="button" disabled>Coming soon</button>
-          </div>
-        </article>
-    
-        <!-- Guide 3 
-        <article class="photo-card story-card is-disabled" aria-label="Title">
-          <div class="story-kicker"><span class="story-dot"></span>Coming soon</div>
-          <h3 class="story-title">Title</h3>
-          <p class="story-text">
-            The Hook and description
-          </p>
-          <div class="story-actions">
-            <button class="story-btn" type="button" disabled>Coming soon</button>
-          </div>
-        </article>-->
-    
-      </div>
-    </section>
-    
-    <section class="section section-epilogue" aria-hidden="true">
-      <div class="epilogue-art">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </section>
-    
-    
-    <footer>
-      <p>Copyright &copy; <span id="year"></span> Lumasphere.art - All Rights Reserved</p>
-      <div class="footer-links">
-        <a href="#top">Back to top</a>
-      </div>
-    </footer>
-  </main>
-
-  <!-- STORY LIGHTBOX (for chapters) -->
-  <section class="storybox" aria-hidden="true" role="dialog" aria-labelledby="storybox-title">
-    <div class="storybox-inner">
-      <button type="button" class="storybox-close">
-        <span aria-hidden="true">×</span>
-        <span class="visually-hidden">Close chapter</span>
-      </button>
-
-      <button type="button" class="storybox-nav storybox-prev" aria-label="Previous chapter">‹</button>
-      <button type="button" class="storybox-nav storybox-next" aria-label="Next chapter">›</button>
-
-      <div class="storybox-content">
-        <p class="storybox-kicker" id="storybox-kicker">Discovering Analogue</p>
-        <h2 class="storybox-title" id="storybox-title">Title</h2>
-        <p class="storybox-meta" id="storybox-meta">Meta</p>
-
-        <div class="storybox-chat" id="storybox-chat" aria-label="Chat transcript"></div>
-
-        <div class="storybox-actions">
-          <button type="button" class="storybox-toggle storybox-jump" data-story-jump="background">← Chapter One</button>
-          <button type="button" class="storybox-toggle storybox-jump" data-story-jump="plan">Chapter Two →</button>
-        </div>
-
-        <p class="lightbox-keyhint">Tip: press Esc to close, ← / → to switch chapters, or click the background.</p>
+  <!-- ============ ABOUT ============ -->
+  <section id="about" class="set" style="--accent:#9fb0bd" aria-labelledby="s-about">
+    <div class="set__inner wrap">
+      <header class="chapter reveal">
+        <h2 class="chapter__title" id="s-about">About my photography</h2>
+      </header>
+      <div class="about reveal">
+        <p class="lead">As a kid I thought the big film and TV cameras were the coolest thing going, and I'd try to copy shots I'd seen on screen. When GCSE options came round I realised photography was something I could actually study, so I took it, then carried it on at A level.</p>
+        <p>At college the tutors printed a selection of students' work for an open day, and some of mine went up on the wall. Since then I've kept shooting casually, and that's where most of the photos here come from.</p>
+        <p>Today I don't really do spontaneous. If something catches my eye I'll make a mental note, think it over, and come back later with a camera and a plan. The close ups are shot at home, because a studio is really just anywhere you can control the light. The landscapes were all taken in the UK.</p>
       </div>
     </div>
   </section>
 
-  <!-- IMAGE LIGHTBOX -->
-  <section class="lightbox" aria-hidden="true" role="dialog" aria-labelledby="lightbox-title">
-    <div class="lightbox-inner">
-      <button type="button" class="lightbox-close">
-        <span aria-hidden="true">×</span>
-        <span class="visually-hidden">Close image</span>
-      </button>
-
-      <button type="button" class="lightbox-nav lightbox-prev" aria-label="Previous image">‹</button>
-      <button type="button" class="lightbox-nav lightbox-next" aria-label="Next image">›</button>
-
-      <div class="lightbox-media">
-        <img src="" alt="" class="lightbox-img" />
-      </div>
-
-      <div class="lightbox-content">
-        <p class="lightbox-kicker" id="lightbox-kicker">Selected work</p>
-        <h2 class="lightbox-title" id="lightbox-title">Title</h2>
-        <p class="lightbox-meta" id="lightbox-meta">Meta</p>
-        <p class="lightbox-short" id="lightbox-short"></p>
-        <button type="button" class="lightbox-toggle" aria-expanded="false" aria-controls="lightbox-long">
-          <span>Read full write-up</span>
-        </button>
-        <p class="lightbox-long" id="lightbox-long" hidden></p>
-        <p class="lightbox-keyhint">Tip: press Esc to close, ← / → to switch images, or click the background.</p>
-      </div>
+  <!-- ============ CHIAROSCURO ============ -->
+  <section id="chiaroscuro" class="set" style="--accent:#e8893a" aria-labelledby="s-chiaroscuro">
+    <div class="set__inner wrap">
+      <header class="chapter reveal">
+        <h2 class="chapter__title" id="s-chiaroscuro">Chiaroscuro</h2>
+        <p class="chapter__lede">Italian for <span class="term">light and dark</span>. Bright light against deep shadow, with each shot built around a single light.</p>
+      </header>
+      <article class="plate reveal" style="--accent:#e8893a" aria-labelledby="h-chiaroscuro-threshold">
+        <div class="plate__media"><figure class="frame">
+          <button type="button" class="shot" data-full="images/chiaroscuro-threshold-full.jpg" data-cap="Threshold · Chiaroscuro" aria-label="View Threshold full screen" onclick="openLB(this)">
+            <img src="images/chiaroscuro-threshold.jpg" width="1024" height="1280" loading="eager" decoding="async" alt="A hooded figure stands silhouetted on railway tracks at the mouth of a tunnel, ringed by a swirling halo of orange light painted during a long exposure.">
+          </button>
+        </figure></div>
+        <div class="plate__body">
+          <h3 id="h-chiaroscuro-threshold">Threshold</h3>
+          <p>A school friend, big Star Wars fan, swinging a toy lightsaber through a long exposure. We walked the old railway line out to the tunnel with a tripod and tried a few different exposures. If I shot it again, I'd end the exposure with a low power flash on the figure, masked and dressed all in black, and a stronger flash on the tunnel walls.</p>
+        </div>
+      </article>
+      <article class="plate plate--flip reveal" style="--accent:#3fcf7f" aria-labelledby="h-chiaroscuro-apparition">
+        <div class="plate__media"><figure class="frame">
+          <button type="button" class="shot" data-full="images/chiaroscuro-apparition-full.jpg" data-cap="Apparition · Chiaroscuro" aria-label="View Apparition full screen" onclick="openLB(this)">
+            <img src="images/chiaroscuro-apparition.jpg" width="1280" height="756" loading="lazy" decoding="async" alt="A single ribbon of incense smoke lit emerald green, caught mid curl against pure black.">
+          </button>
+        </figure></div>
+        <div class="plate__body">
+          <h3 id="h-chiaroscuro-apparition">Apparition</h3>
+          <p>Plain grey smoke from an incense stick. I put a flash on one side and a reflector card on the other, and that much light let me keep the whole plume sharp. The green was added afterwards in editing.</p>
+        </div>
+      </article>
+      <article class="plate reveal" style="--accent:#5e8cf0" aria-labelledby="h-chiaroscuro-primaries">
+        <div class="plate__media"><figure class="frame">
+          <button type="button" class="shot" data-full="images/chiaroscuro-primaries-full.jpg" data-cap="Primaries · Chiaroscuro" aria-label="View Primaries full screen" onclick="openLB(this)">
+            <img src="images/chiaroscuro-primaries.jpg" width="1280" height="905" loading="lazy" decoding="async" alt="The sharpened tips of three coloured pencils, red, green and blue, standing upright against black, the bare wood glowing under the light.">
+          </button>
+        </figure></div>
+        <div class="plate__body">
+          <h3 id="h-chiaroscuro-primaries">Primaries</h3>
+          <p>Red, green and blue: the primary colours of every screen and camera sensor. This is a remake of an earlier attempt, shot about a year later once my skills had started to catch up with the idea.</p>
+        </div>
+      </article>
     </div>
   </section>
 
-  <script>
-    (function () {
-      const yearSpan = document.getElementById('year');
-      if (yearSpan) yearSpan.textContent = new Date().getFullYear();
-
-      // Helpers to avoid conflicts
-      const storybox = document.querySelector('.storybox');
-      function isStoryboxOpen() { return storybox && storybox.classList.contains('is-open'); }
-
-      const lightbox = document.querySelector('.lightbox');
-      function isLightboxOpen() { return lightbox && lightbox.classList.contains('is-open'); }
-
-      // =========================
-      // IMAGE LIGHTBOX
-      // =========================
-      const lightboxImg = document.querySelector('.lightbox-img');
-      const lightboxTitle = document.getElementById('lightbox-title');
-      const lightboxMeta = document.getElementById('lightbox-meta');
-      const lightboxShort = document.getElementById('lightbox-short');
-      const lightboxLong = document.getElementById('lightbox-long');
-
-      // IMPORTANT FIX: scope the toggle to the lightbox, not the whole document
-      const lightboxToggle = lightbox ? lightbox.querySelector('.lightbox-toggle') : null;
-
-      const closeBtn = document.querySelector('.lightbox-close');
-      const thumbButtons = Array.from(document.querySelectorAll('.photo-thumb-btn'));
-      const prevBtn = document.querySelector('.lightbox-prev');
-      const nextBtn = document.querySelector('.lightbox-next');
-
-      const heroSection = document.querySelector('.hero');
-      const heroFrame = document.querySelector('.hero-frame');
-      const heroImg = document.querySelector('.hero-frame-photo');
-      const heroFrameInner = document.querySelector('.hero-frame-inner');
-
-      let lastFocusedElement = null;
-      let currentIndex = 0;
-
-      function getDataFromButton(btn) {
-        const full = btn.getAttribute('data-full') || '';
-        const title = btn.getAttribute('data-title') || '';
-        const meta = btn.getAttribute('data-meta') || '';
-        const shortText = btn.getAttribute('data-short') || '';
-        const longText = btn.getAttribute('data-long') || '';
-        const img = btn.querySelector('img');
-        const alt = img ? img.alt : '';
-        return { full, title, meta, shortText, longText, alt };
-      }
-
-      function openLightbox(data) {
-        if (!lightbox || !lightboxImg) return;
-
-        // If story is open, close it first
-        if (isStoryboxOpen()) closeStory();
-
-        lastFocusedElement = document.activeElement;
-
-        lightboxImg.src = data.full;
-        lightboxImg.alt = data.alt;
-        lightboxTitle.textContent = data.title;
-        lightboxMeta.textContent = data.meta;
-        lightboxShort.textContent = data.shortText;
-        lightboxLong.textContent = data.longText;
-
-        lightboxLong.hidden = true;
-        if (lightboxToggle) {
-          lightboxToggle.setAttribute('aria-expanded', 'false');
-          const span = lightboxToggle.querySelector('span');
-          if (span) span.textContent = 'Read full write-up';
-        }
-
-        lightbox.classList.add('is-open');
-        lightbox.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-
-        if (closeBtn) closeBtn.focus();
-      }
-
-      function openLightboxByIndex(index) {
-        if (!thumbButtons.length) return;
-        currentIndex = (index + thumbButtons.length) % thumbButtons.length;
-        const btn = thumbButtons[currentIndex];
-        openLightbox(getDataFromButton(btn));
-      }
-
-      function closeLightbox() {
-        if (!lightbox) return;
-        lightbox.classList.remove('is-open');
-        lightbox.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-
-        if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
-          lastFocusedElement.focus();
-        }
-      }
-
-      thumbButtons.forEach((btn, index) => {
-        btn.addEventListener('click', () => openLightboxByIndex(index));
-      });
-
-      if (prevBtn) prevBtn.addEventListener('click', () => openLightboxByIndex(currentIndex - 1));
-      if (nextBtn) nextBtn.addEventListener('click', () => openLightboxByIndex(currentIndex + 1));
-
-      if (lightboxToggle && lightboxLong) {
-        lightboxToggle.addEventListener('click', () => {
-          const isHidden = lightboxLong.hidden;
-          lightboxLong.hidden = !isHidden;
-          lightboxToggle.setAttribute('aria-expanded', String(isHidden));
-          const span = lightboxToggle.querySelector('span');
-          if (span) span.textContent = isHidden ? 'Show less' : 'Read full write-up';
-        });
-      }
-
-      if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
-
-      if (lightbox) {
-        lightbox.addEventListener('click', (event) => {
-          if (event.target === lightbox) closeLightbox();
-        });
-        // Prevent edge-case bubbling
-        const inner = lightbox.querySelector('.lightbox-inner');
-        if (inner) inner.addEventListener('click', (e) => e.stopPropagation());
-      }
-
-
-      // =========================
-      // HERO SLIDESHOW + MATCHING GRADIENT
-      // =========================
-      const heroSlides = [
-        { index: 0, src: 'images/rose-memory-still-life.jpg', alt: 'Close-up of a deep purple rose against a black background.', bg1: 'rgba(160, 60, 200, 0.45)', bg2: 'rgba(10, 5, 40, 0.8)' },
-        { index: 1, src: 'images/broken-phone-screen-experiment.jpg', alt: 'Abstract cracked phone screen with soft light.', bg1: 'rgba(80, 140, 170, 0.45)', bg2: 'rgba(20, 20, 40, 0.85)' },
-        { index: 2, src: 'images/welsh-valley-sunrise-landscape.jpg', alt: 'Welsh hillside silhouette with blue and orange sunrise.', bg1: 'rgba(255, 140, 80, 0.45)', bg2: 'rgba(20, 40, 80, 0.85)' }
-      ];
-
-      let heroIndex = 0;
-
-      function applyHeroSlide(slide) {
-        if (!heroImg || !heroSection || !heroFrame || !heroFrameInner) return;
-
-        heroImg.src = slide.src;
-        heroImg.alt = slide.alt;
-
-        heroSection.style.background =
-          `radial-gradient(circle at 0 0, ${slide.bg1} 0, transparent 60%),
-           radial-gradient(circle at 100% 100%, ${slide.bg2} 0, transparent 60%),
-           linear-gradient(135deg, rgba(13, 18, 30, 0.96), rgba(7, 9, 16, 0.98))`;
-
-        heroFrame.style.background =
-          `radial-gradient(circle at 0 0, ${slide.bg2} 0, transparent 55%),
-           radial-gradient(circle at 100% 100%, ${slide.bg1} 0, transparent 60%),
-           #05070d`;
-
-        heroFrameInner.style.background =
-          `radial-gradient(circle at 30% 0, rgba(255,255,255,0.04) 0, transparent 55%),
-           radial-gradient(circle at 100% 100%, rgba(0,0,0,0.8) 0, transparent 65%),
-           #05070d`;
-
-        heroFrame.classList.remove('swoosh');
-        void heroFrame.offsetWidth;
-        heroFrame.classList.add('swoosh');
-
-        currentIndex = slide.index;
-      }
-
-      function nextHeroSlide() {
-        heroIndex = (heroIndex + 1) % heroSlides.length;
-        applyHeroSlide(heroSlides[heroIndex]);
-      }
-
-      if (heroSlides.length && heroImg && heroSection) {
-        applyHeroSlide(heroSlides[0]);
-        setInterval(nextHeroSlide, 8000);
-      }
-
-      if (heroFrame) {
-        heroFrame.addEventListener('click', () => {
-          openLightboxByIndex(currentIndex);
-        });
-      }
-
-      // =========================
-      // STORY LIGHTBOX (chapters)
-      // =========================
-      const storyboxChat = document.getElementById('storybox-chat');
-      const storyboxTitle = document.getElementById('storybox-title');
-      const storyboxMeta = document.getElementById('storybox-meta');
-      const storyClose = document.querySelector('.storybox-close');
-      const storyPrev = document.querySelector('.storybox-prev');
-      const storyNext = document.querySelector('.storybox-next');
-      const storyJumps = Array.from(document.querySelectorAll('[data-story-jump]'));
-      const storyOpenButtons = Array.from(document.querySelectorAll('[data-story]'));
-      const storyInner = document.querySelector('.storybox-inner');
-
-      let storyLastFocus = null;
-
-      const STORIES = {
-        background: {
-          title: 'Chapter One — Background',
-          meta: 'Canon AE-1 Program · Costs · Optimism',
-          messages: [
-            { type: 'date', text: 'Mon · 8 Jan 2026' },
-    
-            { who: 'My Frontal Lobe', side: 'sender', text: 'I’ve just bought my first analogue SLR.' },
-            { who: 'Common Sense', side: 'other', text: 'You already own cameras.' },
-            { who: 'My Frontal Lobe', side: 'sender', text: 'This one is different.' },
-            { who: 'Common Sense', side: 'other', text: 'They’re always different.' },
-            { who: 'My Frontal Lobe', side: 'sender', text: 'It’s a Canon AE-1 Program.' },
-            { who: 'Common Sense', side: 'other', text: 'Ah.' },
-            { who: 'My Frontal Lobe', side: 'sender', text: 'I found it on eBay.' },
-            { who: 'Common Sense', side: 'other', text: 'Of course you did.' },
-            { who: 'My Frontal Lobe', side: 'sender', text: 'Seller called yutaka-camera-japan.' },
-            { who: 'Common Sense', side: 'other', text: 'Which is from Japan.' },
-            { who: 'My Frontal Lobe', side: 'sender', text: 'Yes.\nFrom Japan.\nDuh.' },
-
-            { who: 'My Frontal Lobe', side: 'sender', text: 'The listing said near-mint.\nAnd “working condition”.' },
-            { who: 'Common Sense', side: 'other', text: 'Define “working”.' },
-            { who: 'My Frontal Lobe', side: 'sender', text: 'On a forty-year-old film camera?\nProbably that the shutter moved when someone pressed the button.' },
-            { who: 'Common Sense', side: 'other', text: 'That’s not the same as tested.' },
-            { who: 'My Frontal Lobe', side: 'sender', text: 'No.\nBut it’s adjacent.' },
-
-            { who: 'My Frontal Lobe', side: 'sender', text: 'It came as a bundle though.\nBody. 50mm FD lens. Skylight filter. Data Back. Power Winder.\nAll with "free shipping.”' },
-            { who: 'Common Sense', side: 'other', text: 'You’re going to pay for that later.' },
-            { who: 'My Frontal Lobe', side: 'sender', text: 'We’ll come back to shipping.' },
-
-            { who: 'My Frontal Lobe', side: 'sender', text: 'List price: £138.18.\nPlus UK VAT on import.' },
-            { who: 'Common Sense', side: 'other', text: 'There it is.' },
-            { who: 'My Frontal Lobe', side: 'sender', text: 'DHL cleared it through customs, paid £27.63 VAT on my behalf,\nand charged me £11.00 for the privilege.\n\nTotal so far: £176.81.' },
-            { who: 'Common Sense', side: 'other', text: 'Still defensible.' },
-
-            { who: 'My Frontal Lobe', side: 'sender', text: 'A few days later, the camera arrived.\n\nFirst impression: it’s heavy.' },
-            { who: 'Common Sense', side: 'other', text: 'Second impression?' },
-            { who: 'My Frontal Lobe', side: 'sender', text: 'The finger grip was missing.' },
-            { who: 'Common Sense', side: 'other', text: 'Naturally.' },
-
-            { who: 'My Frontal Lobe', side: 'sender', text: 'I missed it in the listing. My other Canon is light as a feather.\n\nThis one weighs a tonne. Without the grip, one-handed shooting is… optimistic.' },
-            { who: 'Common Sense', side: 'other', text: 'So you bought the grip.' },
-            { who: 'My Frontal Lobe', side: 'sender', text: '£21.99.\nFree shipping.' },
-            { who: 'Common Sense', side: 'other', text: 'Again.' },
-            { who: 'My Frontal Lobe', side: 'sender', text: 'PhotoSolutioncouk on eBay.' },
-            { who: 'Common Sense', side: 'other', text: 'You’re keeping track now.' },
-            { who: 'My Frontal Lobe', side: 'sender', text: 'I didn’t start this.\nThe numbers did.' },
-
-            { who: 'My Frontal Lobe', side: 'sender', text: 'Next problem: batteries.\n\nI put four rechargeable AAs into the power winder and assumed that would be enough.' },
-            { who: 'Common Sense', side: 'other', text: 'You assumed.' },
-            { who: 'My Frontal Lobe', side: 'sender', text: 'It turns out the camera itself needs a specific 6V battery.' },
-            { who: 'Common Sense', side: 'other', text: 'Of course it does.' },
-            { who: 'My Frontal Lobe', side: 'sender', text: '£8.89.\nFree shipping.' },
-            { who: 'Common Sense', side: 'other', text: 'For now.' },
-            { who: 'My Frontal Lobe', side: 'sender', text: 'Then I realised the Data Back takes the same battery.' },
-            { who: 'Common Sense', side: 'other', text: 'Say it slowly.' },
-            { who: 'My Frontal Lobe', side: 'sender', text: 'Another £8.89.' },
-            { who: 'Common Sense', side: 'other', text: 'There it is.' },
-
-            { who: 'My Frontal Lobe', side: 'sender', text: 'I even messaged the seller to confirm that yes, I really did need two,\nand no, I hadn’t lost my mind.' },
-            { who: 'Common Sense', side: 'other', text: 'Still inconclusive.' },
-
-            { who: 'My Frontal Lobe', side: 'sender', text: 'I also bought a camera strap.\n£10.' },
-            { who: 'Common Sense', side: 'other', text: 'Optional.' },
-            { who: 'My Frontal Lobe', side: 'sender', text: 'Preventative.' },
-            { who: 'My Frontal Lobe', side: 'sender', text: 'I wrap the strap of my other Canon around my hand when shooting.\nPart grip. Part confidence.\n\nWith a heavier body like this, that matters.\nI’d rather spend ten pounds on a strap than drop the camera onto a pebble and discover what cast metal sounds like when it fails.' },
-            { who: 'Common Sense', side: 'other', text: 'Reasonable.' },
-
-            { who: 'My Frontal Lobe', side: 'sender', text: 'At this point, I was £226.58 in.' },
-            { who: 'Common Sense', side: 'other', text: 'And you still hadn’t—' },
-            { who: 'My Frontal Lobe', side: 'sender', text: 'Loaded any film.' },
-            { who: 'Common Sense', side: 'other', text: 'There it is.' },
-
-            { who: 'My Frontal Lobe', side: 'sender', text: 'So. Film.' },
-            { who: 'My Frontal Lobe', side: 'sender', text: 'Three rolls of Kodak Gold 200.\n36 exposures each.\n\n£39.95 from ClassicPhotoSupplys on eBay.' },
-            { who: 'Common Sense', side: 'other', text: 'That’s expensive.' },
-            { who: 'My Frontal Lobe', side: 'sender', text: 'It includes development and high-resolution scans.' },
-            { who: 'Common Sense', side: 'other', text: 'Ah.' },
-            { who: 'My Frontal Lobe', side: 'sender', text: 'For all three rolls.' },
-            { who: 'Common Sense', side: 'other', text: 'Less ah.' },
-
-            { who: 'My Frontal Lobe', side: 'sender', text: 'Those rolls are accounted for.\nProvided two things happen.' },
-            { who: 'Common Sense', side: 'other', text: 'Go on.' },
-            { who: 'My Frontal Lobe', side: 'sender', text: 'One: I actually shoot them.\nTwo: the lab doesn’t go bust before I post them off.' },
-            { who: 'Common Sense', side: 'other', text: 'That’s a real sentence.' },
-
-            { who: 'My Frontal Lobe', side: 'sender', text: 'So now I’m £266.53 down.\nAlmost double the original list price.\n\nAnd I haven’t taken a single photograph yet.' },
-            { who: 'Common Sense', side: 'other', text: 'Strong start.' },
-
-            { who: 'My Frontal Lobe', side: 'sender', text: 'This is for the first 36 exposures.\nIncluding the mess-ups.' }
-          ]
-        },
-
-        plan: {
-          title: 'Chapter Two — The Plan',
-          meta: 'Intention · Cost per frame · Waiting',
-          messages: [
-            { type: 'date', text: 'Tue · 9 Jan 2026' },
-
-            { who: 'Common Sense', side: 'other', text: 'You don’t want to waste film.' },
-            { who: 'My Frontal Lobe', side: 'sender', text: 'Correct.' },
-
-            { who: 'My Frontal Lobe', side: 'sender', text: 'Film costs money.\nPosting film costs more money.\nDeveloping film costs even more money.' },
-            { who: 'Common Sense', side: 'other', text: 'Scans.' },
-            { who: 'My Frontal Lobe', side: 'sender', text: 'Scans.' },
-
-            { who: 'My Frontal Lobe', side: 'sender', text: 'And if I want the originals back—' },
-            { who: 'Common Sense', side: 'other', text: 'You do.' },
-            { who: 'My Frontal Lobe', side: 'sender', text: '—I do.' },
-            { who: 'Common Sense', side: 'other', text: 'That costs money.' },
-            { who: 'My Frontal Lobe', side: 'sender', text: 'Yes.' },
-
-            { who: 'My Frontal Lobe', side: 'sender', text: 'Each frame works out at roughly fifty pence.' },
-            { who: 'Common Sense', side: 'other', text: 'For one button press.' },
-
-            { who: 'My Frontal Lobe', side: 'sender', text: 'Given that, randomness isn’t an option.' },
-            { who: 'Common Sense', side: 'other', text: 'Film disagrees.' },
-            { who: 'My Frontal Lobe', side: 'sender', text: 'Film doesn’t get a vote.' },
-            { who: 'Common Sense', side: 'other', text: 'It will anyway.' },
-
-            { who: 'My Frontal Lobe', side: 'sender', text: 'The goal is to make them all count.' },
-
-            { who: 'My Frontal Lobe', side: 'sender', text: 'Planned themes:\n– Experimentation\n– Photographing my Jaaaaag\n– Double exposures\n– Landscapes\n– Long exposures / motion blur\n– Maybe people' },
-            { who: 'Common Sense', side: 'other', text: 'You added that last one quietly.' },
-            { who: 'My Frontal Lobe', side: 'sender', text: 'It’s conditional.' },
-
-            { who: 'My Frontal Lobe', side: 'sender', text: 'Assuming I don’t mess up loading the film,\nthat’s about six shots per theme.' },
-            { who: 'Common Sense', side: 'other', text: 'Optimistic.' },
-            { who: 'My Frontal Lobe', side: 'sender', text: 'Prepared.' },
-
-            { who: 'My Frontal Lobe', side: 'sender', text: 'I’ve read an unreasonable amount of the manual.' },
-            { who: 'Common Sense', side: 'other', text: 'You always do.' },
-
-            { who: 'My Frontal Lobe', side: 'sender', text: 'Centre-weighted average meter.\nCannot be changed.' },
-            { who: 'Common Sense', side: 'other', text: 'So you’ll adapt.' },
-
-            { who: 'My Frontal Lobe', side: 'sender', text: 'I already shoot manual on digital.\nExposure theory isn’t new.' },
-            { who: 'Common Sense', side: 'other', text: 'Waiting is.' },
-
-            { who: 'My Frontal Lobe', side: 'sender', text: 'That’s the difference.\n\nA roll has to be finished. Rewound. Posted. Developed. Scanned. Returned.' },
-            { who: 'Common Sense', side: 'other', text: 'That’s a lot of trust.' },
-
-            { who: 'My Frontal Lobe', side: 'sender', text: 'I’ve trusted worse systems.' },
-            { who: 'Common Sense', side: 'other', text: 'Have they cost this much.' },
-            { who: 'My Frontal Lobe', side: 'sender', text: 'Sometimes.' },
-
-            { who: 'My Frontal Lobe', side: 'sender', text: 'Only then do I see what worked.' },
-            { who: 'Common Sense', side: 'other', text: 'And what didn’t.' },
-            { who: 'My Frontal Lobe', side: 'sender', text: 'Especially what didn’t.' },
-
-            { who: 'My Frontal Lobe', side: 'sender', text: 'For now, I’m waiting on batteries and film.' },
-            { who: 'Common Sense', side: 'other', text: 'So everything so far is theory.' },
-            { who: 'My Frontal Lobe', side: 'sender', text: 'Yes.' },
-            { who: 'Common Sense', side: 'other', text: 'Expensive theory.' },
-            { who: 'My Frontal Lobe', side: 'sender', text: 'Foundational theory.' }
-          ]
-        }
-      };
-
-      const STORY_ORDER = ['background', 'plan'];
-      let storyIndex = 0;
-
-      function renderStory(key) {
-        const story = STORIES[key];
-        if (!story || !storyboxChat) return;
-
-        storyboxTitle.textContent = story.title;
-        storyboxMeta.textContent = story.meta;
-
-        document.querySelectorAll('.storybox-jump').forEach(btn => {
-          const jump = btn.getAttribute('data-story-jump');
-          btn.style.opacity = (jump === key) ? '0.55' : '1';
-        });
-
-        storyboxChat.innerHTML = '';
-        for (const m of story.messages) {
-
-          // Date separator
-          if (m.type === 'date') {
-            const date = document.createElement('div');
-            date.className = 'story-date';
-            date.textContent = m.text;
-            storyboxChat.appendChild(date);
-            continue;
-          }
-
-          const row = document.createElement('div');
-          row.className = `storybubble-row ${m.side === 'sender' ? 'sender' : 'other'}`;
-
-          const bubble = document.createElement('div');
-          bubble.className = `storybubble ${m.side === 'sender' ? 'sender' : 'other'}`;
-
-          const who = document.createElement('span');
-          who.className = 'storywho';
-
-          if (m.who === 'My Frontal Lobe') {
-            who.innerHTML = '<strong>My Frontal Lobe</strong>';
-          } else {
-            who.textContent = m.who;
-          }
-
-          const text = document.createElement('div');
-          text.textContent = m.text;
-
-          bubble.appendChild(who);
-          bubble.appendChild(text);
-          row.appendChild(bubble);
-          storyboxChat.appendChild(row);
-        }
-
-        const content = document.querySelector('.storybox-content');
-        if (content) content.scrollTop = 0;
-      }
-
-      function openStory(key) {
-        if (!storybox) return;
-
-        // If image lightbox is open, close it first
-        if (isLightboxOpen()) closeLightbox();
-
-        storyLastFocus = document.activeElement;
-
-        storyIndex = Math.max(0, STORY_ORDER.indexOf(key));
-        renderStory(STORY_ORDER[storyIndex]);
-
-        storybox.classList.add('is-open');
-        storybox.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-
-        if (storyClose) storyClose.focus();
-      }
-
-      function closeStory() {
-        if (!storybox) return;
-        storybox.classList.remove('is-open');
-        storybox.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-
-        if (storyLastFocus && typeof storyLastFocus.focus === 'function') storyLastFocus.focus();
-      }
-
-      function nextStory(dir) {
-        storyIndex = (storyIndex + dir + STORY_ORDER.length) % STORY_ORDER.length;
-        renderStory(STORY_ORDER[storyIndex]);
-      }
-
-      storyOpenButtons.forEach(btn => {
-        btn.addEventListener('click', () => openStory(btn.getAttribute('data-story')));
-      });
-
-      if (storyClose) storyClose.addEventListener('click', closeStory);
-
-      if (storybox) {
-        storybox.addEventListener('click', (e) => {
-          if (e.target === storybox) closeStory();
-        });
-      }
-      if (storyInner) storyInner.addEventListener('click', (e) => e.stopPropagation());
-
-      if (storyPrev) storyPrev.addEventListener('click', () => nextStory(-1));
-      if (storyNext) storyNext.addEventListener('click', () => nextStory(+1));
-
-      storyJumps.forEach(btn => {
-        btn.addEventListener('click', () => openStory(btn.getAttribute('data-story-jump')));
-      });
-
-      // =========================
-      // GLOBAL KEY HANDLING (gated)
-      // =========================
-      document.addEventListener('keydown', (event) => {
-        // Storybox has priority
-        if (isStoryboxOpen()) {
-          if (event.key === 'Escape') { event.preventDefault(); closeStory(); }
-          if (event.key === 'ArrowRight') { event.preventDefault(); nextStory(+1); }
-          if (event.key === 'ArrowLeft') { event.preventDefault(); nextStory(-1); }
-          return;
-        }
-
-        // Image lightbox keys only if story is not open
-        if (isLightboxOpen()) {
-          if (event.key === 'Escape') { event.preventDefault(); closeLightbox(); }
-          if (event.key === 'ArrowRight') { event.preventDefault(); openLightboxByIndex(currentIndex + 1); }
-          if (event.key === 'ArrowLeft') { event.preventDefault(); openLightboxByIndex(currentIndex - 1); }
-        }
-      });
-
-    })();
-  </script>
+  <!-- ============ BOTANICAL ============ -->
+  <section id="botanical" class="set" style="--accent:#5fae4f" aria-labelledby="s-botanical">
+    <div class="set__inner wrap">
+      <header class="chapter reveal">
+        <h2 class="chapter__title" id="s-botanical">Botanical</h2>
+        <p class="chapter__lede">Flowers, leaves and berries. Same idea as everything else: find where the light falls and let the rest go dark.</p>
+      </header>
+      <article class="plate reveal" style="--accent:#c44fb0" aria-labelledby="h-botanical-nightshade">
+        <div class="plate__media"><figure class="frame">
+          <button type="button" class="shot" data-full="images/botanical-nightshade-full.jpg" data-cap="Nightshade · Botanical" aria-label="View Nightshade full screen" onclick="openLB(this)">
+            <img src="images/botanical-nightshade.jpg" width="1280" height="1280" loading="lazy" decoding="async" alt="A magenta rose drawn out of black by a single low light, petals fading from bright bloom into deep shadow.">
+          </button>
+        </figure></div>
+        <div class="plate__body">
+          <h3 id="h-botanical-nightshade">Nightshade</h3>
+          <p>A rose borrowed from a bouquet my mum was given after we lost a family member. I picked out the best one I could find and took it to my "studio", which is really the home office: a flash and softbox on the right, and a second stand with a clamp holding the stem.</p>
+        </div>
+      </article>
+      <article class="plate plate--flip reveal" style="--accent:#b5443a" aria-labelledby="h-botanical-cotoneaster">
+        <div class="plate__media"><figure class="frame">
+          <button type="button" class="shot" data-full="images/botanical-cotoneaster-full.jpg" data-cap="Cotoneaster · Botanical" aria-label="View Cotoneaster full screen" onclick="openLB(this)">
+            <img src="images/botanical-cotoneaster.jpg" width="1280" height="853" loading="lazy" decoding="async" alt="A cluster of glossy red cotoneaster berries and small green leaves lit dramatically against black.">
+          </button>
+        </figure></div>
+        <div class="plate__body">
+          <h3 id="h-botanical-cotoneaster">Cotoneaster</h3>
+          <p>One of my early photos. I cut a sprig from the bush, brought it home and lit it with a flash and its built in diffuser.</p>
+        </div>
+      </article>
+      <article class="plate reveal" style="--accent:#5fae4f" aria-labelledby="h-botanical-veins">
+        <div class="plate__media"><figure class="frame">
+          <button type="button" class="shot" data-full="images/botanical-veins-full.jpg" data-cap="Veins · Botanical" aria-label="View Veins full screen" onclick="openLB(this)">
+            <img src="images/botanical-veins.jpg" width="1280" height="1024" loading="lazy" decoding="async" alt="A green compound leaf against black, lit from above so its raised veins and toothed edges catch the light.">
+          </button>
+        </figure></div>
+        <div class="plate__body">
+          <h3 id="h-botanical-veins">Veins</h3>
+          <p>A trimming from a plant we used to have outside, lit from above with a flash and a snoot to keep the light tight. It was an experiment I dismissed at the time, then found again while going back through old photos. A bit of work in Lightroom and it came out alright.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ LANDSCAPES ============ -->
+  <section id="landscapes" class="set" style="--accent:#e0a23a" aria-labelledby="s-landscapes">
+    <div class="set__inner wrap">
+      <header class="chapter reveal">
+        <h2 class="chapter__title" id="s-landscapes">Landscapes</h2>
+        <p class="chapter__lede">The same light and dark, just spread across a whole valley instead of one small thing.</p>
+      </header>
+      <article class="plate reveal" style="--accent:#e8896f" aria-labelledby="h-landscape-first-light">
+        <div class="plate__media"><figure class="frame">
+          <button type="button" class="shot" data-full="images/landscape-first-light-full.jpg" data-cap="First Light · Landscapes" aria-label="View First Light full screen" onclick="openLB(this)">
+            <img src="images/landscape-first-light.jpg" width="853" height="1280" loading="lazy" decoding="async" alt="A valley at first light: dark layered hills under a band of mist, the sky burning from coral at the horizon up into clear blue.">
+          </button>
+        </figure></div>
+        <div class="plate__body">
+          <h3 id="h-landscape-first-light">First Light</h3>
+          <p>Summer 2024, and pretty much the only proper photo I took that year. I drove out at about 3am to set up and wait for the sunrise. The fog sitting in the valley and a sky that vivid were a complete coincidence. More luck than judgement.</p>
+        </div>
+      </article>
+      <article class="plate plate--flip reveal" style="--accent:#e0a23a" aria-labelledby="h-landscape-last-light">
+        <div class="plate__media"><figure class="frame">
+          <button type="button" class="shot" data-full="images/landscape-last-light-full.jpg" data-cap="Last Light · Landscapes" aria-label="View Last Light full screen" onclick="openLB(this)">
+            <img src="images/landscape-last-light.jpg" width="1280" height="790" loading="lazy" decoding="async" alt="A valley at sunset, golden light flooding between dark hills with a grassy field track leading into the foreground.">
+          </button>
+        </figure></div>
+        <div class="plate__body">
+          <h3 id="h-landscape-last-light">Last Light</h3>
+          <p>One of my very first photos, taken before my GCSE course had even started. Dad had bought me a camera, I got bored waiting, so I went out to teach myself. Pure luck, plus far too long in Lightroom. The school later showed it in an assembly to Year 9s picking their options, which is ironic, because they didn't teach me that one. I only found out on the bus home, when a few people said they'd seen it and liked it.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ LIMINAL ============ -->
+  <section id="liminal" class="set" style="--accent:#9fb0ad" aria-labelledby="s-liminal">
+    <div class="set__inner wrap">
+      <header class="chapter reveal">
+        <h2 class="chapter__title" id="s-liminal">Liminal</h2>
+        <p class="chapter__lede">Like the chiaroscuro shots, but in white instead of black. Fog does the job shadow normally does: it hides everything except the bit worth looking at.</p>
+      </header>
+      <article class="plate reveal" style="--accent:#aeb6b8" aria-labelledby="h-liminal-into-white">
+        <div class="plate__media"><figure class="frame">
+          <button type="button" class="shot" data-full="images/liminal-into-white-full.jpg" data-cap="Into the White · Liminal" aria-label="View Into the White full screen" onclick="openLB(this)">
+            <img src="images/liminal-into-white.jpg" width="853" height="1280" loading="lazy" decoding="async" alt="A wet single track road curving away across open moorland and dissolving into thick fog, pale winter grass on either side.">
+          </button>
+        </figure></div>
+        <div class="plate__body">
+          <h3 id="h-liminal-into-white">Into the White</h3>
+          <p>Another early one. I happened to grab the camera on my way out for a walk, and this was one of the shots that came out of it.</p>
+        </div>
+      </article>
+      <article class="plate plate--flip reveal" style="--accent:#8a9a86" aria-labelledby="h-liminal-the-stand">
+        <div class="plate__media"><figure class="frame">
+          <button type="button" class="shot" data-full="images/liminal-the-stand-full.jpg" data-cap="The Stand · Liminal" aria-label="View The Stand full screen" onclick="openLB(this)">
+            <img src="images/liminal-the-stand.jpg" width="1280" height="640" loading="lazy" decoding="async" alt="A dark block of conifer forest on pale upland grassland beneath a flat white sky, a low stone wall running along its base.">
+          </button>
+        </figure></div>
+        <div class="plate__body">
+          <h3 id="h-liminal-the-stand">The Stand</h3>
+          <p>I already knew this block of forest was there, so when my A level portfolio called for landscapes, I went back to photograph it.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ NUMISMATICS ============ -->
+  <section id="numismatics" class="set" style="--accent:#9fb0bd" aria-labelledby="s-numismatics">
+    <div class="set__inner wrap">
+      <header class="chapter reveal">
+        <h2 class="chapter__title" id="s-numismatics">Numismatics</h2>
+        <p class="chapter__lede">Technically <span class="term">numismatics</span> is the study of coins and money. Here it's mostly an excuse to get really close to old metal and watch the light catch the detail.</p>
+      </header>
+      <article class="plate reveal" style="--accent:#9fb0bd" aria-labelledby="h-numismatics-team-gb">
+        <div class="plate__media"><figure class="frame">
+          <button type="button" class="shot" data-full="images/numismatics-team-gb-full.jpg" data-cap="Team GB · Numismatics" aria-label="View Team GB full screen" onclick="openLB(this)">
+            <img src="images/numismatics-team-gb.jpg" width="722" height="1280" loading="lazy" decoding="async" alt="A close up of a Team GB 50p coin showing a swimmer mid stroke, standing upright with its mirrored reflection below.">
+          </button>
+        </figure></div>
+        <div class="plate__body">
+          <h3 id="h-numismatics-team-gb">Team GB</h3>
+          <p>The 2016 Team GB 50p, stood on my laptop screen so the glass doubles as a mirror and the swimmer gets a reflection to dive into.</p>
+        </div>
+      </article>
+      <article class="plate plate--flip reveal" style="--accent:#b3a9c0" aria-labelledby="h-numismatics-silver-wedding">
+        <div class="plate__media"><figure class="frame">
+          <button type="button" class="shot" data-full="images/numismatics-silver-wedding-full.jpg" data-cap="Silver Wedding · Numismatics" aria-label="View Silver Wedding full screen" onclick="openLB(this)">
+            <img src="images/numismatics-silver-wedding.jpg" width="1280" height="1280" loading="lazy" decoding="async" alt="A close up of a 1972 Elizabeth and Philip silver wedding crown, the EP monogram, crown and lettering catching faint rainbow toning.">
+          </button>
+        </figure></div>
+        <div class="plate__body">
+          <h3 id="h-numismatics-silver-wedding">Silver Wedding</h3>
+          <p>The 1972 silver wedding crown, a coin I was given, and my first go at focus stacking: several shots focused at different depths, blended into one sharp image. It isn't perfect, but it's how I learned to do it.</p>
+        </div>
+      </article>
+      <article class="plate reveal" style="--accent:#aeb4ba" aria-labelledby="h-numismatics-britannia">
+        <div class="plate__media"><figure class="frame">
+          <button type="button" class="shot" data-full="images/numismatics-britannia-full.jpg" data-cap="Britannia · Numismatics" aria-label="View Britannia full screen" onclick="openLB(this)">
+            <img src="images/numismatics-britannia.jpg" width="1280" height="914" loading="lazy" decoding="async" alt="An extreme close up of an old fifty pence coin showing part of the seated Britannia figure, a lion, and the raised letters around the rim.">
+          </button>
+        </figure></div>
+        <div class="plate__body">
+          <h3 id="h-numismatics-britannia">Britannia</h3>
+          <p>The back of an old 50p, up close enough that every scratch and worn edge on Britannia starts to show.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       NEXT SECTION TEMPLATE (leave commented until you're ready)
+       Copy this block out of the comment, give the <section> a new id
+       and a matching nav link up top, set the --accent colour, and fill
+       in each plate. Duplicate the <article> for more photos.
+       Display image: images/your-slug.jpg
+       Full size (loads on click): images/your-slug-full.jpg
+
+  <section id="SECTION-ID" class="set" style="--accent:#888888" aria-labelledby="s-SECTION-ID">
+    <div class="set__inner wrap">
+      <header class="chapter reveal">
+        <h2 class="chapter__title" id="s-SECTION-ID">Section Title</h2>
+        <p class="chapter__lede">A sentence or two introducing the set.</p>
+      </header>
+      <article class="plate reveal" style="--accent:#888888" aria-labelledby="h-your-slug">
+        <div class="plate__media"><figure class="frame">
+          <button type="button" class="shot" data-full="images/your-slug-full.jpg" data-cap="Title · Section" aria-label="View Title full screen" onclick="openLB(this)">
+            <img src="images/your-slug.jpg" width="1500" height="1000" loading="lazy" decoding="async" alt="Plain description of the photo for screen readers.">
+          </button>
+        </figure></div>
+        <div class="plate__body">
+          <h3 id="h-your-slug">Title</h3>
+          <p>A short note about the shot.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+       ============================================================ -->
+
+  <!-- ============ CTA ============ -->
+  <section class="cta wrap" aria-labelledby="s-cta">
+    <h2 id="s-cta">Say hello.</h2>
+    <p>Got a question about a photo, or just want to talk photography? Drop me a line.</p>
+    <button type="button" class="btn" onclick="openContact()">Get in touch</button>
+  </section>
+</main>
+
+<button type="button" class="btn fab" id="fab" onclick="openContact()" aria-label="Get in touch" tabindex="-1">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+  Get in touch
+</button>
+
+<dialog id="lightbox" class="lb" aria-label="Photo viewer">
+  <button class="lb__close" type="button" aria-label="Close (Esc)">&times;</button>
+  <div class="lb__spin" aria-hidden="true"></div>
+  <figure class="lb__fig">
+    <img id="lbImg" alt="">
+    <figcaption id="lbCap" class="lb__cap"></figcaption>
+  </figure>
+</dialog>
+
+<dialog id="contact" class="modal" aria-labelledby="contact-title">
+  <button class="modal__close" type="button" aria-label="Close (Esc)">&times;</button>
+  <div class="modal__wrap">
+    <div class="modal__panel">
+      <h2 class="modal__title" id="contact-title">Get in touch</h2>
+      <div class="modal__body">
+        <p>Happy to hear from you, whether it's about a photo or just a chat. I'll get back to you as soon as I can.</p>
+        <p class="modal__note">One small thing first. To stop bots scraping it, my address stays hidden until you tick the box.</p>
+        <ol class="terms">
+          <li>Please don't share or publish it.</li>
+          <li>No marketing or bulk email, please.</li>
+        </ol>
+        <label class="agree"><input type="checkbox" id="c-agree"> Sounds fair</label>
+        <button type="button" id="c-reveal" class="btn" disabled>Show email address</button>
+        <p id="c-email" class="c-email" hidden></p>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="usage" class="modal" aria-labelledby="usage-title">
+  <button class="modal__close" type="button" aria-label="Close (Esc)">&times;</button>
+  <div class="modal__wrap">
+    <div class="modal__panel">
+      <h2 class="modal__title" id="usage-title">Using my photos</h2>
+      <div class="modal__body">
+        <p>All the photos here are mine, and I keep the copyright.</p>
+        <h3 class="modal__h">Personal use: go for it</h3>
+        <p>You're welcome to save them to your own phone, tablet or computer, as a wallpaper for example. Please don't print them.</p>
+        <h3 class="modal__h">Commercial use: not allowed</h3>
+        <p>Please don't use them for anything commercial or business related. If I find one being used that way, I'll ask for it to be taken down.</p>
+        <h3 class="modal__h">Saving a copy</h3>
+        <label class="agree"><input type="checkbox" id="u-agree"> Got it, personal use only</label>
+        <button type="button" id="u-reveal" class="btn" disabled>Show me how</button>
+        <p id="u-how" hidden>Click a photo to open it full screen at full size (give it a second to sharpen), then right click it, or press and hold on a phone, and choose "Save image". Enjoy.</p>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<footer class="wrap">
+  <hr class="foot-rule">
+  <p class="colophon">
+    <span>© 2026 <a href="https://lumasphere.art">lumasphere.art</a></span>
+    <span><button type="button" class="link-btn" onclick="openUsage()">Using my photos</button><button type="button" class="link-btn" onclick="openContact()">Contact</button></span>
+  </p>
+</footer>
+
+<script>
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px',threshold:.08});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});
+  }
+
+  // Scroll-spy + sticky border
+  (function(){
+    var links={},navEl=document.querySelector('.nav'),nav=navEl.querySelectorAll('a');
+    nav.forEach(function(a){links[a.getAttribute('href').slice(1)]=a;});
+    var spy=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){
+      nav.forEach(function(a){a.removeAttribute('aria-current');});
+      if(links[e.target.id])links[e.target.id].setAttribute('aria-current','true');}});},{rootMargin:'-40% 0px -55% 0px',threshold:0});
+    document.querySelectorAll('main .set').forEach(function(s){spy.observe(s);});
+    function stuck(){navEl.classList.toggle('is-stuck',navEl.getBoundingClientRect().top<=0);}
+    addEventListener('scroll',stuck,{passive:true}); stuck();
+  })();
+
+  // Floating contact button: shown once the hero buttons are off screen, hidden at the closing call-to-action
+  (function(){
+    var fab=document.getElementById('fab'),hero=document.querySelector('.hero-actions'),cta=document.querySelector('.cta');
+    if(!('IntersectionObserver' in window)){fab.classList.add('is-visible');fab.tabIndex=0;return;}
+    var heroVis=true,ctaVis=false;
+    function update(){var show=!heroVis&&!ctaVis;fab.classList.toggle('is-visible',show);fab.tabIndex=show?0:-1;}
+    new IntersectionObserver(function(es){heroVis=es[0].isIntersecting;update();}).observe(hero);
+    new IntersectionObserver(function(es){ctaVis=es[0].isIntersecting;update();}).observe(cta);
+  })();
+
+  // Lightbox with two-tier loading: show the display image instantly, then swap in the full size one
+  var lb=document.getElementById('lightbox'), lbImg=document.getElementById('lbImg'), lbCap=document.getElementById('lbCap');
+  var zoomLevels=[1,1.8,2.6,3.4], zi=0;
+  function resetZoom(){ zi=0; lbImg.style.transformOrigin='center center'; lbImg.style.transform='scale(1)'; lbImg.style.cursor='zoom-in'; }
+  function openLB(btn){
+    var img=btn.querySelector('img'), full=btn.dataset.full;
+    resetZoom();
+    lbImg.src=img.currentSrc||img.src;
+    lbImg.alt=img.alt;
+    lbCap.textContent=btn.dataset.cap||'';
+    lb.setAttribute('aria-label',(btn.dataset.cap||'Photo')+', full screen, click to zoom');
+    lb.classList.add('loading');
+    if(typeof lb.showModal==='function') lb.showModal(); else lb.setAttribute('open','');
+    var hi=new Image();
+    hi.onload=function(){ lbImg.src=full; lb.classList.remove('loading'); };
+    hi.onerror=function(){ lb.classList.remove('loading'); };
+    hi.src=full;
+  }
+  // Click the photo to step through 3 zoom levels towards the click point; a 4th click returns to fit
+  lbImg.addEventListener('click',function(e){
+    e.stopPropagation();
+    zi=(zi+1)%zoomLevels.length;
+    if(zi===0){ lbImg.style.transformOrigin='center center'; }
+    else{
+      var r=lbImg.getBoundingClientRect();
+      var ox=((e.clientX-r.left)/r.width)*100, oy=((e.clientY-r.top)/r.height)*100;
+      lbImg.style.transformOrigin=ox+'% '+oy+'%';
+    }
+    lbImg.style.transform='scale('+zoomLevels[zi]+')';
+    lbImg.style.cursor = zi===zoomLevels.length-1 ? 'zoom-out' : 'zoom-in';
+  });
+  lb.addEventListener('click',function(e){ if(e.target.id==='lbImg') return; lb.close(); });
+  lb.addEventListener('close',resetZoom);
+  // Preload the full size version on hover or focus so it's ready by the click
+  document.querySelectorAll('.shot').forEach(function(btn){
+    var done=false;
+    function pre(){ if(done) return; done=true; var i=new Image(); i.src=btn.dataset.full; }
+    btn.addEventListener('pointerenter',pre); btn.addEventListener('focus',pre);
+  });
+
+  // Modals close on the X or any click outside the panel
+  document.querySelectorAll('dialog.modal').forEach(function(d){
+    d.querySelector('.modal__close').addEventListener('click',function(){d.close();});
+    d.addEventListener('click',function(e){ if(e.target.closest('.modal__panel')) return; d.close(); });
+  });
+
+  // Contact: the address is only decoded after the tick box
+  var contact=document.getElementById('contact');
+  var C_EML="YWxleEBsdW1hc3BoZXJlLmFydA==";
+  function openContact(){ if(typeof contact.showModal==='function') contact.showModal(); else contact.setAttribute('open',''); }
+  document.getElementById('c-agree').addEventListener('change',function(e){
+    document.getElementById('c-reveal').disabled=!e.target.checked;
+  });
+  document.getElementById('c-reveal').addEventListener('click',function(){
+    var addr=atob(C_EML), out=document.getElementById('c-email');
+    var a=document.createElement('a'); a.href='mail'+'to:'+addr; a.textContent=addr;
+    out.textContent=''; out.appendChild(a); out.hidden=false; this.hidden=true;
+  });
+  contact.addEventListener('close',function(){
+    document.getElementById('c-agree').checked=false;
+    var rb=document.getElementById('c-reveal'); rb.disabled=true; rb.hidden=false;
+    var em=document.getElementById('c-email'); em.hidden=true; em.textContent='';
+  });
+
+  // Using my photos: the saving steps show after the tick box
+  var usage=document.getElementById('usage');
+  function openUsage(){ if(typeof usage.showModal==='function') usage.showModal(); else usage.setAttribute('open',''); }
+  document.getElementById('u-agree').addEventListener('change',function(e){
+    document.getElementById('u-reveal').disabled=!e.target.checked;
+  });
+  document.getElementById('u-reveal').addEventListener('click',function(){
+    document.getElementById('u-how').hidden=false; this.hidden=true;
+  });
+  usage.addEventListener('close',function(){
+    document.getElementById('u-agree').checked=false;
+    var rb=document.getElementById('u-reveal'); rb.disabled=true; rb.hidden=false;
+    document.getElementById('u-how').hidden=true;
+  });
+</script>
 </body>
 </html>
-
